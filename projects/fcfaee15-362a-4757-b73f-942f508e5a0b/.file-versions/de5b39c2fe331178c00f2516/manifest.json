@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 2,
+  "fileName": "oferta/index.html",
+  "currentVersionId": "c0d623e5-158d-4dba-b6e7-d7f9c87d4df5",
+  "entries": [
+    {
+      "id": "c0d623e5-158d-4dba-b6e7-d7f9c87d4df5",
+      "fileName": "oferta/index.html",
+      "version": 1,
+      "label": "Version 1",
+      "createdAt": 1790853777824,
+      "source": "ai",
+      "prompt": "quero que voce crie uma subpasta com o titulo oferta e na pagina principal colocar um botao VER OFERTA AGORA\n\n<active-workspace-context>\nOpenDesign selected or inferred these workspace contexts for this turn. Treat absolute paths as reference context unless the user explicitly asks to edit them.\n1. file: curso-vagas-linkedin-ia.html | path: curso-vagas-linkedin-ia.html | absolute: /app/.od/projects/fcfaee15-362a-4757-b73f-942f508e5a0b/curso-vagas-linkedin-ia.html | tab: curso-vagas-linkedin-ia.html\n</active-workspace-context>",
+      "size": 24900,
+      "mime": "text/html; charset=utf-8",
+      "kind": "html",
+      "contentPath": "0001-c0d623e5-158d-4dba-b6e7-d7f9c87d4df5.html",
+      "contentDigest": "a46204d0d562260df6f1877a72b506456dd9b21fb2a01a07fe089f99364d98ab",
+      "promptSource": "message"
+    }
+  ]
+}

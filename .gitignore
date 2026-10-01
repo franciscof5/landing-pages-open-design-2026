@@ -1,0 +1,22 @@
+# Banco de dados interno do OpenDesign (muda a cada ação, não é artefato)
+app.sqlite
+app.sqlite-shm
+app.sqlite-wal
+
+# Credenciais de conectores (API keys, tokens) — NUNCA versionar
+connectors/
+
+# Logs e diagnósticos internos
+diagnostics/
+runs/
+
+# Binário/cache do OpenCode montado (pesado, reinstalável)
+opencode-home/
+
+# Config local da instância (pode conter paths/segredos específicos da máquina)
+app-config.json
+installation.json
+
+# Node/temp genérico, por segurança
+node_modules/
+*.log

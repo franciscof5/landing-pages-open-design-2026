@@ -1,0 +1,19 @@
+{
+  "version": 1,
+  "kind": "html",
+  "title": "oferta/index.html",
+  "entry": "oferta/index.html",
+  "renderer": "html",
+  "status": "complete",
+  "exports": [
+    "html",
+    "pdf",
+    "zip"
+  ],
+  "createdAt": "2026-10-01T11:22:46.797Z",
+  "updatedAt": "2026-10-01T11:22:46.797Z",
+  "metadata": {
+    "inferred": true,
+    "reconciled": true
+  }
+}

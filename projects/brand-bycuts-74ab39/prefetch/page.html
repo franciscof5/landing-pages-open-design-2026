@@ -1,0 +1,596 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Dynamic Title & Description (set page_title / page_description in each template) -->
+  <title>ByCuts — AI Podcast Clip Editor</title>
+  <meta name="description" content="ByCuts turns your long podcasts into viral AI-generated clips and shorts — horizontal, vertical, subtitled, and ready to post." />
+
+  <!-- Open Graph / WhatsApp / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://bycuts.com/">
+  <meta property="og:title" content="ByCuts — AI Podcast Clip Editor">
+  <meta property="og:description" content="ByCuts turns your long podcasts into viral AI-generated clips and shorts — horizontal, vertical, subtitled, and ready to post.">
+  <meta property="og:image" content="https://bycuts.com/static/images/bycuts-image.jpg">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="ByCuts — AI Podcast Clip Editor">
+  <meta name="twitter:description" content="ByCuts turns your long podcasts into viral AI-generated clips and shorts — horizontal, vertical, subtitled, and ready to post.">
+  <meta name="twitter:image" content="https://bycuts.com/static/images/bycuts-image.jpg">
+
+  <!-- Normalize + Fonts -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+
+  <!-- Global shared CSS (always loaded) -->
+  <link rel="stylesheet" href="/static/style.css" />
+
+  <!-- Page-specific CSS (set page_css in each template, e.g. /static/landing.css) -->
+  
+  <link rel="stylesheet" href="/static/landing.css" />
+  
+
+  <!-- Google Tag Manager -->
+  <script type="text/od-defused-script">(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-NQZ9S24K');</script>
+  <!-- End Google Tag Manager -->
+</head>
+
+<body class="landing-body">
+
+  <!-- ===== TOP NAVBAR ===== -->
+  <header class="top-navbar">
+    <div class="top-navbar-container">
+      <div class="logo" onclick="window.location.href='/'">
+        <span class="white">By</span>Cuts
+      </div>
+      <div class="nav-buttons" >
+        
+        <!-- Default landing nav: override per page via block or extra_nav -->
+        
+          <button class="nav-btn pricing-btn" onclick="window.location.href='/advertise'">Advertise</button>
+          <button class="nav-btn pricing-btn" onclick="window.location.href='/pricing'">Pricing</button>
+          <button class="nav-btn login-btn" id="loginNavBtn" onclick="handleLoginClick2()">Login</button>
+          <!-- <button class="nav-btn login-btn" id="loginNavBtn"  onclick="handleLoginClick()">Login</button> -->
+        
+        
+      </div>
+    </div>
+  </header>
+
+  <!-- ===== HERO ===== -->
+  <section class="hero">
+    <div class="hero-glow"></div>
+    
+    <div class="hero-grid">
+      <div class="hero-content">
+        <div class="hero-badge">✨ Vertical, Horizontal & 24/7 Live</div>
+
+        <h1 class="hero-title">
+          Grow Your Audience<br>
+          <span class="hero-gradient">Spectacularly</span>
+        </h1>
+
+        <p class="hero-subtitle">
+          We turn your YouTube channel into an <strong>organic audience growth machine</strong>.
+          Create horizontal videos, vertical shorts, and 24/7 live streams —
+          just paste your video link and we’ll do the rest.
+        </p>
+        <div class="hero-cta-row">
+          <button class="hero-cta-primary" id="heroMainCta" onclick="handleHeroCta()">
+            🚀 Start Generating Clips
+          </button>
+          <button class="hero-cta-secondary" onclick="window.location.href='/pricing'">
+            See Pricing
+          </button>
+        </div>
+        <p class="hero-note">No credit card required to get started · Pay only per video</p>
+      </div>
+
+      <div class="hero-video-showcase" aria-hidden="true">
+        <div class="hero-video-wrapper">
+          <video id="heroVideo" autoplay loop muted playsinline preload="auto">
+            <source src="/static/videos/hero-v1-hq.webm" type="video/webm" />
+            <source src="/static/videos/hero-v1-hq.mp4" type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ===== CLIENTS ===== -->
+  <section class="section-clients">
+    <div class="section-container">
+
+      <div class="section-label">Podcasts Showcase</div>
+      <h2 class="section-title">Creators using ByCuts</h2>
+
+      <div class="clients-carousel">
+        <button class="carousel-arrow carousel-arrow-prev" onclick="carouselMove(-1)" aria-label="Previous">‹</button>
+
+        <div class="clients-track-wrapper">
+          <div class="clients-track" id="clientsTrack">
+
+            <a href="https://www.youtube.com/@franquiasemsegredo" target="_blank" rel="noopener noreferrer" class="client-card">
+              <div class="client-image-wrapper">
+                <img src="/static/clients/thumbnail-podcast-fss.jpg" alt="Franquia Sem Segredos" class="client-image">
+                <div class="client-logo"><img src="/static/clients/logo-podcast-fss.jpg" alt="Franquia Sem Segredos logo"></div>
+              </div>
+              <div class="client-info"><h3>🇧🇷 Franquia Sem Segredos</h3><span>Watch podcast →</span></div>
+            </a>
+
+            <a href="https://www.youtube.com/@BestSoundEst%C3%BAdios" target="_blank" rel="noopener noreferrer" class="client-card">
+              <div class="client-image-wrapper">
+                <img src="/static/clients/thumbnail-podcast-best-cafe.jpg" alt="Best Sound Studios" class="client-image">
+                <div class="client-logo"><img src="/static/clients/logo-podcast-best-cafe.jpg" alt="Best Sound Studios logo"></div>
+              </div>
+              <div class="client-info"><h3>🇧🇷 Best Café</h3><span>Watch podcast →</span></div>
+            </a>
+            
+            <a href="https://www.youtube.com/@diy_podcast" target="_blank" rel="noopener noreferrer" class="client-card">
+              <div class="client-image-wrapper">
+                <img src="/static/clients/thumbnail-podcast-diy_podcast.jpg" alt="DIY Podcast" class="client-image">
+                <div class="client-logo"><img src="/static/clients/logo-podcast-diy_podcast.jpg" alt="DIY Podcast logo"></div>
+              </div>
+              <div class="client-info"><h3>🇧🇷 DIY Podcast</h3><span>Watch podcast →</span></div>
+            </a>
+
+            <a href="https://www.youtube.com/@ElencoB" target="_blank" rel="noopener noreferrer" class="client-card">
+              <div class="client-image-wrapper">
+                <img src="/static/clients/thumbnail-podcast-elencob.jpg" alt="Third Podcast" class="client-image">
+                <div class="client-logo"><img src="/static/clients/logo-podcast-elencob.jpg" alt="Third Podcast logo"></div>
+              </div>
+              <div class="client-info"><h3>🇧🇷 Elenco B</h3><span>Watch podcast →</span></div>
+            </a>
+
+            <a href="https://www.youtube.com/@PodtalkMed" target="_blank" rel="noopener noreferrer" class="client-card">
+              <div class="client-image-wrapper">
+                <img src="/static/clients/thumbnail-podcast-podtalkmed.jpg" alt="Third Podcast" class="client-image">
+                <div class="client-logo"><img src="/static/clients/logo-podcast-podtalkmed.jpg" alt="Third Podcast logo"></div>
+              </div>
+              <div class="client-info"><h3>🇧🇷 Pod Talk Med</h3><span>Watch podcast →</span></div>
+            </a>
+
+            <a href="https://www.youtube.com/@Podniveasales" target="_blank" rel="noopener noreferrer" class="client-card">
+              <div class="client-image-wrapper">
+                <img src="/static/clients/thumbnail-podcast-nivea.jpg" alt="Third Podcast" class="client-image">
+                <div class="client-logo"><img src="/static/clients/logo-podcast-nivea.jpg" alt="Third Podcast logo"></div>
+              </div>
+              <div class="client-info"><h3>🇧🇷 Pod Nivea Sales</h3><span>Watch podcast →</span></div>
+            </a>
+
+            <a href="https://www.youtube.com/@TVORDINARIA" target="_blank" rel="noopener noreferrer" class="client-card">
+              <div class="client-image-wrapper">
+                <img src="/static/clients/thumbnail-podcast-itape.jpg" alt="Third Podcast" class="client-image">
+                <div class="client-logo"><img src="/static/clients/logo-podcast-itape.jpg" alt="Third Podcast logo"></div>
+              </div>
+              <div class="client-info"><h3>🇧🇷 Itape Ordinária</h3><span>Watch podcast →</span></div>
+            </a>
+
+          </div>
+        </div>
+
+        <button class="carousel-arrow carousel-arrow-next" onclick="carouselMove(1)" aria-label="Next">›</button>
+      </div>
+
+      <div class="carousel-dots" id="clientsDots"></div>
+
+    </div>
+  </section>
+
+    <!-- ===== STATS ===== -->
+  <section class="section-stats">
+    <div class="stats-glow"></div>
+    <a href="/stats" class="stats-clickable-wrapper" aria-label="View detailed platform stats">
+      <div class="section-container">
+        <div class="stats-grid">
+
+          <div class="stat-card">
+            <span class="stat-icon">👥</span>
+            <span class="stat-number" id="statUsers" data-target="0">0</span>
+            <span class="stat-label">Creators trusting ByCuts</span>
+          </div>
+
+          <div class="stat-card">
+            <span class="stat-icon">🎬</span>
+            <span class="stat-number" id="statVideos" data-target="0">0</span>
+            <span class="stat-label">Videos processed</span>
+          </div>
+
+          <div class="stat-card">
+            <span class="stat-icon">⏱️</span>
+            <span class="stat-number" id="statHours" data-target="0">0</span>
+            <span class="stat-label">Hours of content watched by our AI</span>
+          </div>
+
+          <div class="stat-card">
+            <span class="stat-icon">✂️</span>
+            <span class="stat-number" id="statClips" data-target="0">0</span>
+            <span class="stat-label">Clips generated</span>
+          </div>
+
+          <div class="stat-card">
+            <span class="stat-icon">📡</span>
+            <span class="stat-number" id="statChannels" data-target="2">0</span>
+            <span class="stat-label">Our own clip channels</span>
+          </div>
+
+        </div>
+      </div>
+    </a>
+  </section>
+
+  <!-- ===== HOW IT WORKS ===== -->
+  <!-- <section class="section-how">
+    <div class="section-container">
+      <div class="section-label">Simple &amp; Fast</div>
+      <h2 class="section-title">Three steps to viral content</h2>
+      <div class="steps-grid">
+        <div class="step-card">
+          <div class="step-icon">🔗</div>
+          <div class="step-num">01</div>
+          <h3>Paste the link</h3>
+          <p>Drop any YouTube podcast or long-form video URL. Trim to the part you want processed.</p>
+        </div>
+        <div class="step-card">
+          <div class="step-icon">🤖</div>
+          <div class="step-num">02</div>
+          <h3>AI does the work</h3>
+          <p>Our pipeline downloads, transcribes, finds the best cuts, adds subtitles and vertical crops — automatically.</p>
+        </div>
+        <div class="step-card">
+          <div class="step-icon">📅</div>
+          <div class="step-num">03</div>
+          <h3>We Schedule</h3>
+          <p>We schedule your clips to your channels — and you can still download it and reuse or fine edit.</p>
+        </div>
+      </div>
+    </div>
+  </section> -->
+
+
+    <!-- ===== 24/7 CLIPS CHANNEL ===== -->
+  <section class="section-247">
+    <div class="section-container">
+      <div class="section-247-grid">
+
+        <a href="https://www.youtube.com/@bypodcut" target="_blank" rel="noopener noreferrer" class="section-247-image-wrapper">
+          <img src="/static/images/thumbnail-live24.jpg" alt="ByCuts 24/7 Clips Channel example" class="section-247-image">
+          <span class="section-247-image-badge">🔴 Live Example</span>
+        </a>
+
+        <div class="section-247-content">
+          <div class="section-label">Exclusive Product</div>
+          <h2 class="section-title">Get Your Own 24/7 Clips Channel</h2>
+          <p class="section-247-sub">
+            Vertical viral clips, horizontal viral cuts, and a 24/7 live channel —
+            together they cover every format and every corner of YouTube and social,
+            compounding into real audience growth. The complete package every
+            creator needs, fully managed by ByCuts.
+          </p>
+          <button class="hero-cta-primary" onclick="openPricingModal()">
+            🚀 Get Started
+          </button>
+        </div>
+
+      </div>
+    </div>
+  </section>
+  
+  
+  <!-- ===== FEATURES ===== -->
+  <section class="section-features">
+    <div class="section-container">
+      <div class="section-label">What you get</div>
+      <h2 class="section-title">Everything a creator needs</h2>
+      <div class="features-grid">
+
+        <div class="feature-card">
+          <span class="feature-icon">📐</span>
+          <h3>Horizontal &amp; Vertical</h3>
+          <p>Auto-crop to 16:9 and 9:16. Five shorts and two long cuts per video, in both formats.</p>
+        </div>
+
+        <div class="feature-card">
+          <span class="feature-icon">💬</span>
+          <h3>Styled Subtitles</h3>
+          <p>Burned-in subtitles in English, Portuguese, Spanish and Italian. Looks great on mobile.</p>
+        </div>
+
+        <div class="feature-card">
+          <span class="feature-icon">✂️</span>
+          <h3>Smart Trim</h3>
+          <p>Choose exactly which segment of your video to process with our interactive timeline slider.</p>
+        </div>
+
+        <div class="feature-card">
+          <span class="feature-icon">🤖</span>
+          <h3>AI Gen Metadata</h3>
+          <p>Titles and hashtags generated per clip — copy and paste straight into YouTube or Instagram.</p>
+        </div>
+
+        <div class="feature-card">
+          <span class="feature-icon">🧼</span>
+          <h3>Satisfying Video</h3>
+          <p>Optionally add a split-screen satisfying background video underneath the podcast for Reels.</p>
+        </div>
+
+        <div class="feature-card">
+          <span class="feature-icon">💳</span>
+          <h3>Pay by the video</h3>
+          <p>No subscription required. Pay per processed video via Stripe (USD, EUR, BRL) or Solana.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== GLOBAL NETWORK ===== -->
+  <section class="section-network">
+    <div class="section-container">
+      <div class="section-label">Multi-Language</div>
+      <h2 class="section-title">ByCuts Global Network</h2>
+      <p class="network-subtitle">
+        Our own in-house channels, produced with our own resources, showcasing ByCuts's work in every language we support.
+      </p>
+
+      <div class="network-grid">
+
+        <a href="https://www.youtube.com/@bypodcut" target="_blank" rel="noopener noreferrer" class="network-card is-live">
+          <div class="network-flag">🇧🇷</div>
+          <h3>Portuguese</h3>
+          <span class="network-status status-live">● Live</span>
+          <p>Our Portuguese channel is up and running, showcasing ByCuts-edited clips.</p>
+        </a>
+
+        <a href="https://www.youtube.com/@bypodcut_italia" target="_blank" rel="noopener noreferrer" class="network-card is-live">
+          <div class="network-flag">🇮🇹</div>
+          <h3>Italian</h3>
+          <span class="network-status status-live">● Live</span>
+          <p>Our Italian channel is up and running, showcasing ByCuts-edited clips.</p>
+        </a>
+
+        <div class="network-card is-soon">
+          <div class="network-flag">🇬🇧</div>
+          <h3>English</h3>
+          <span class="network-status status-soon">◐ In Progress</span>
+          <p>Our English channel is currently being built out.</p>
+        </div>
+
+        <div class="network-card is-soon">
+          <div class="network-flag">🇪🇸</div>
+          <h3>Spanish</h3>
+          <span class="network-status status-soon">◐ In Progress</span>
+          <p>Our Spanish channel is currently being built out.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+  
+  <!-- ===== CTA BANNER ===== -->
+  <section class="section-cta">
+    <div class="section-container cta-inner">
+      <h2 class="cta-title">Ready to save hours every week?</h2>
+      <p class="cta-sub">Join creators already using ByCuts to grow their audience on every platform.</p>
+      <button class="hero-cta-primary large" onclick="handleHeroCta()">🚀 Get Started Free</button>
+    </div>
+  </section>
+
+<!-- ===== FOOTER ===== -->
+<footer class="site-footer">
+    <div class="footer-inner">
+
+        <div class="footer-top">
+            <div class="logo"><span class="white">By</span>Cuts</div>
+            <div class="footer-links">
+                <a href="/contact">Contact</a>
+                <a href="/advertise">Advertise</a>
+                <a href="/pricing">Pricing</a>
+                <a href="/privacy">Privacy</a>
+                <a href="/terms">Terms</a>
+            </div>
+            <div class="footer-social">
+                <a href="https://wa.me/5511958877900?text=Hello%20from%bycuts.com" target="_blank" rel="noopener" aria-label="WhatsApp" class="footer-social-icon">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M20.5 3.5A11.8 11.8 0 0 0 12.1 0C5.6 0 .3 5.3.3 11.8c0 2.1.6 4.1 1.6 5.9L.2 24l6.5-1.7a11.8 11.8 0 0 0 5.4 1.3h.1c6.5 0 11.8-5.3 11.8-11.8 0-3.1-1.2-6.1-3.5-8.3ZM12.1 21.6c-1.7 0-3.4-.5-4.9-1.3l-.3-.2-3.8 1 1-3.7-.2-.4a9.8 9.8 0 1 1 8.2 4.6Zm5.4-7.3c-.3-.2-1.8-.9-2.1-1-.3-.1-.5-.2-.7.2-.2.3-.8 1-1 1.2-.2.2-.4.2-.7.1-.3-.2-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.7l.5-.6c.2-.2.2-.4.3-.6.1-.2 0-.5 0-.7-.1-.2-.7-1.7-1-2.3-.3-.6-.5-.5-.7-.5h-.6c-.2 0-.6.1-.9.4-.3.3-1.1 1.1-1.1 2.6s1.1 3 1.3 3.2c.2.2 2.1 3.2 5.1 4.5.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.8-.7 2.1-1.4.3-.7.3-1.3.2-1.4-.1-.1-.3-.2-.6-.3Z"/></svg>
+                </a>
+                <a href="https://www.youtube.com/@bypodcut" target="_blank" rel="noopener" aria-label="YouTube" class="footer-social-icon">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8ZM9.6 15.5v-7l6.3 3.5-6.3 3.5Z"/></svg>
+                </a>
+                <a href="https://www.instagram.com/bypodcut" target="_blank" rel="noopener" aria-label="Instagram" class="footer-social-icon">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.2c3.2 0 3.6 0 4.9.07 1.2.06 2 .24 2.6.5.7.28 1.2.65 1.7 1.16.5.5.88 1 1.16 1.7.27.6.45 1.4.5 2.6.06 1.3.07 1.7.07 4.9s0 3.6-.07 4.9c-.06 1.2-.24 2-.5 2.6a4.7 4.7 0 0 1-1.16 1.7c-.5.5-1 .88-1.7 1.16-.6.27-1.4.45-2.6.5-1.3.06-1.7.07-4.9.07s-3.6 0-4.9-.07c-1.2-.06-2-.24-2.6-.5a4.7 4.7 0 0 1-1.7-1.16 4.7 4.7 0 0 1-1.16-1.7c-.27-.6-.45-1.4-.5-2.6C2.2 15.6 2.2 15.2 2.2 12s0-3.6.07-4.9c.06-1.2.24-2 .5-2.6.28-.7.65-1.2 1.16-1.7.5-.5 1-.88 1.7-1.16.6-.27 1.4-.45 2.6-.5C8.4 2.2 8.8 2.2 12 2.2Zm0 1.8c-3.1 0-3.5 0-4.7.07-1 .05-1.6.2-1.9.35-.5.2-.85.43-1.22.8-.37.37-.6.72-.8 1.22-.15.4-.3.9-.35 1.9C3 9.5 3 9.9 3 13c0 3.1 0 3.5.07 4.7.05 1 .2 1.6.35 1.9.2.5.43.85.8 1.22.37.37.72.6 1.22.8.4.15.9.3 1.9.35 1.2.07 1.6.07 4.7.07s3.5 0 4.7-.07c1-.05 1.6-.2 1.9-.35.5-.2.85-.43 1.22-.8.37-.37.6-.72.8-1.22.15-.4.3-.9.35-1.9.07-1.2.07-1.6.07-4.7s0-3.5-.07-4.7c-.05-1-.2-1.6-.35-1.9a2.9 2.9 0 0 0-.8-1.22 2.9 2.9 0 0 0-1.22-.8c-.4-.15-.9-.3-1.9-.35C15.5 4 15.1 4 12 4Zm0 3.4a4.6 4.6 0 1 1 0 9.2 4.6 4.6 0 0 1 0-9.2Zm0 1.8a2.8 2.8 0 1 0 0 5.6 2.8 2.8 0 0 0 0-5.6Zm5.9-2a1.08 1.08 0 1 1-2.16 0 1.08 1.08 0 0 1 2.16 0Z"/></svg>
+                </a>
+                <a href="https://www.tiktok.com/@bypodcut" target="_blank" rel="noopener" aria-label="TikTok" class="footer-social-icon">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M16.6 2h-3.2v13.9a3 3 0 1 1-2.2-2.9V9.6a6.1 6.1 0 1 0 5.4 6.1V8.4a7.5 7.5 0 0 0 4.4 1.4V6.6a4.4 4.4 0 0 1-4.4-4.4Z"/></svg>
+                </a>
+            </div>
+        </div>
+
+        <div class="footer-divider"></div>
+
+        <div class="footer-bottom">
+            <div class="footer-copy">© 2026 ByCuts.com All rights reserved.</div>
+            <div class="footer-hosted">
+                <a href="https://f5sites.com" target="_blank" rel="noopener" aria-label="Hosted by F5 Sites">
+                    <span>Hosted by</span>
+                    <img src="/static/images/f5sites.png" alt="Hosted by F5 Sites" class="f5-image">
+                </a>
+            </div>
+        </div>
+
+    </div>
+</footer>
+
+<!-- Auth state compartilhado — disponível em toda página que inclui footer.html -->
+<script type="text/od-defused-script" src="https://cdnjs.cloudflare.com/ajax/libs/pocketbase/0.21.3/pocketbase.umd.js"></script>
+<script type="text/od-defused-script" src="/static/auth-ui.js"></script>
+
+  <!-- ===== LOGIN / REGISTER MODAL ===== -->
+  <div class="currency-modal-overlay" id="loginModal">
+    <div class="currency-modal-card" style="max-width: 420px; box-sizing: border-box;">
+      <button class="currency-modal-close" onclick="closeLoginModal()">&times;</button>
+      <div class="currency-modal-title" id="modalTitle">Sign In</div>
+      <div class="currency-modal-subtitle" id="modalSubtitle">Log in to unlock all premium AI features</div>
+
+      <!-- Google OAuth2 Button -->
+      <button type="button" onclick="loginWithGoogle()" style="width: 100%; padding: 12px; border-radius: 10px; font-size: 1rem; background: #2a2a2a; color: #fff; font-weight: 600; border: 1px solid rgba(255,255,255,0.2); cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 10px; margin-bottom: 18px;">
+        <svg width="18" height="18" viewBox="0 0 256 262" xmlns="http://www.w3.org/2000/svg"><path fill="#4285f4" d="M255.9 133.5c0-10.8-.9-18.6-2.8-26.7H130.6v48.4h71.9a64 64 0 0 1-26.7 42.4l-.2 1.6 38.7 30 2.7.3c24.7-22.8 38.9-56.3 38.9-96"/><path fill="#34a853" d="M130.6 261.1c35.2 0 64.8-11.6 86.4-31.6l-41.2-32a76 76 0 0 1-45.2 13.1 79 79 0 0 1-74.3-54.2l-1.5.1-40.3 31.2-.6 1.5A131 131 0 0 0 130.6 261"/><path fill="#fbbc05" d="M56.3 156.4a80 80 0 0 1-.2-51.7V103L15.3 71.3l-1.4.6a131 131 0 0 0 0 117.3z"/><path fill="#eb4335" d="M130.6 50.5c24.5 0 41 10.6 50.4 19.4L218 34c-22.8-21-52.2-34-87.4-34C79.5 0 35.4 29.3 13.9 72l42.2 32.7a79 79 0 0 1 74.5-54.2"/></svg>
+        <span id="googleBtnText">Continue with Google</span>
+      </button>
+
+      <div style="display: flex; align-items: center; margin-bottom: 18px; color: var(--text-muted); font-size: 0.85rem;">
+        <div style="flex: 1; height: 1px; background: rgba(255,255,255,0.1);"></div>
+        <span style="padding: 0 10px;">OR</span>
+        <div style="flex: 1; height: 1px; background: rgba(255,255,255,0.1);"></div>
+      </div>
+
+      <!-- Email / Password Form -->
+      <form id="authForm" onsubmit="handleAuthSubmit(event)">
+        <div style="margin-bottom: 18px; text-align: left;">
+          <label style="display: block; margin-bottom: 8px; font-size: 0.95rem; font-weight: 600; color: var(--text-muted);">Email</label>
+          <input type="email" id="loginUsername" required placeholder="Enter your email..." style="width: 100%; box-sizing: border-box; padding: 12px; border-radius: 8px; background: #1a1a1a; border: 1px solid rgba(255,255,255,0.15); color: #fff;" />
+        </div>
+
+        <div style="margin-bottom: 18px; text-align: left;">
+          <label style="display: block; margin-bottom: 8px; font-size: 0.95rem; font-weight: 600; color: var(--text-muted);">Password</label>
+          <input type="password" id="loginPassword" required placeholder="Enter password (min. 8 characters)..." style="width: 100%; box-sizing: border-box; padding: 12px; border-radius: 8px; background: #1a1a1a; border: 1px solid rgba(255,255,255,0.15); color: #fff;" />
+        </div>
+
+        <!-- Confirm Password (visible only on Sign Up) -->
+        <div id="confirmPasswordGroup" style="display: none; margin-bottom: 25px; text-align: left;">
+          <label style="display: block; margin-bottom: 8px; font-size: 0.95rem; font-weight: 600; color: var(--text-muted);">Confirm Password</label>
+          <input type="password" id="loginPasswordConfirm" placeholder="Confirm your password..." style="width: 100%; box-sizing: border-box; padding: 12px; border-radius: 8px; background: #1a1a1a; border: 1px solid rgba(255,255,255,0.15); color: #fff;" />
+        </div>
+
+        <button type="submit" id="submitAuthBtn" style="width: 100%; padding: 14px; border-radius: 10px; font-size: 1.1rem; background: var(--gold-gradient-text); color: #111; font-weight: 700; border: none; cursor: pointer; text-transform: uppercase;">Sign In</button>
+      </form>
+
+      <div style="margin-top: 15px; font-size: 0.9rem; color: var(--text-muted);">
+        <span id="toggleAuthText">Don't have an account?</span>
+        <a href="javascript:void(0)" onclick="toggleAuthMode()" id="toggleAuthLink" style="color: var(--gold-primary); font-weight: 600; text-decoration: none;">Sign Up</a>
+      </div>
+    </div>
+  </div>
+  <!-- ===== SPONSOR MODAL ===== -->
+  <div class="currency-modal-overlay" id="sponsorModal">
+    <div class="currency-modal-card" style="max-width: 680px;">
+      <button class="currency-modal-close" onclick="closeSponsorModal()">&times;</button>
+      <div class="currency-modal-title">Choose Your Plan</div>
+      <div class="currency-modal-subtitle">Every plan includes AI-generated output videos — horizontal, vertical, subtitles &amp; metadata. Optionally publish directly to your clips channel.</div>
+
+      <div class="sponsor-grid">
+        <!-- Bronze -->
+        <div style="background: #1a1a1a; padding: 20px; border-radius: 15px; border: 1px solid rgba(205,127,50,0.35); text-align: center; display: flex; flex-direction: column; justify-content: space-between; gap: 10px;">
+          <div>
+            <div style="font-size: 2rem; margin-bottom: 8px;">🥉</div>
+            <div style="font-weight: 800; font-size: 1.25rem; color: #cd7f32; margin-bottom: 8px;">Bronze</div>
+            <div style="font-size: 1.5rem; font-weight: 700; color: #fff; margin-bottom: 4px;">$50<span style="font-size: 0.85rem; color: var(--text-muted);">/mo</span></div>
+            <ul style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.6; padding: 0; text-align: left; margin: 0 0 15px 0; list-style-type: '✓ ';">
+              <li style="margin-bottom: 6px; padding-left: 5px;"><strong style="color:#fff;">120 output videos</strong></li>
+              <li style="margin-bottom: 6px; padding-left: 5px;">Horizontal &amp; vertical clips</li>
+              <li style="margin-bottom: 6px; padding-left: 5px;">ByCuts Youtube Channel</li>
+            </ul>
+          </div>
+          <button onclick="executeSponsorCheckout('Bronze')" style="font-size: 0.9rem; padding: 10px; text-transform: none; border-radius: 8px; width: 100%;">Get Started</button>
+        </div>
+        <!-- Silver -->
+        <div style="background: #1a1a1a; padding: 20px; border-radius: 15px; border: 1.5px solid rgba(255, 215, 0, 0.3); text-align: center; display: flex; flex-direction: column; justify-content: space-between; gap: 10px; transform: scale(1.04); box-shadow: 0 8px 30px rgba(0,0,0,0.6);">
+          <div>
+            <div style="font-size: 2rem; margin-bottom: 8px;">🥈</div>
+            <div style="font-weight: 800; font-size: 1.25rem; color: #c0c0c0; margin-bottom: 8px;">Silver</div>
+            <div style="font-size: 1.5rem; font-weight: 700; color: #fff; margin-bottom: 4px;">$100<span style="font-size: 0.85rem; color: var(--text-muted);">/mo</span></div>
+            <ul style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.6; padding: 0; text-align: left; margin: 0 0 15px 0; list-style-type: '✓ ';">
+              <li style="margin-bottom: 6px; padding-left: 5px;"><strong style="color:#fff;">240 output videos</strong></li>
+              <li style="margin-bottom: 6px; padding-left: 5px;">Horizontal &amp; vertical clips</li>
+              <li style="margin-bottom: 6px; padding-left: 5px;">ByCuts Youtube Channel</li>
+            </ul>
+          </div>
+          <button onclick="executeSponsorCheckout('Silver')" style="font-size: 0.9rem; padding: 10px; text-transform: none; border-radius: 8px; background: var(--gold-gradient); width: 100%;">Get Started</button>
+        </div>
+        <!-- Gold -->
+        <div style="background: #1a1a1a; padding: 20px; border-radius: 15px; border: 1px solid rgba(255,215,0,0.25); text-align: center; display: flex; flex-direction: column; justify-content: space-between; gap: 10px;">
+          <div>
+            <div style="font-size: 2rem; margin-bottom: 8px;">🥇</div>
+            <div style="font-weight: 800; font-size: 1.25rem; color: #ffd700; margin-bottom: 8px;">Gold</div>
+            <div style="font-size: 1.5rem; font-weight: 700; color: #fff; margin-bottom: 4px;">$250<span style="font-size: 0.85rem; color: var(--text-muted);">/mo</span></div>
+            <ul style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.6; padding: 0; text-align: left; margin: 0 0 15px 0; list-style-type: '✓ ';">
+              <li style="margin-bottom: 6px; padding-left: 5px;"><strong style="color:#fff;">600 output videos</strong></li>
+              <li style="margin-bottom: 6px; padding-left: 5px;">Horizontal &amp; vertical clips</li>
+              <li style="margin-bottom: 6px; padding-left: 5px;">ByCuts YouTube Channel</li>
+            </ul>
+          </div>
+          <button onclick="executeSponsorCheckout('Gold')" style="font-size: 0.9rem; padding: 10px; text-transform: none; border-radius: 8px; border-color: rgba(255,215,0,0.4); width: 100%;">Get Started</button>
+        </div>
+      </div>
+      <div style="font-size: 0.85rem; color: var(--text-muted); margin-top: 4px;">
+        Questions? Contact us at <a href="mailto:sponsors@podcut.com" style="color: var(--gold-primary); text-decoration: none; font-weight: 600;">sponsors@podcut.com</a>
+      </div>
+    </div>
+  </div>
+<!-- ===== PRICING MODAL (shortcut to /pricing) ===== -->
+  <div class="currency-modal-overlay" id="pricingModal">
+    <div class="currency-modal-card" style="max-width: 680px;">
+      <button class="currency-modal-close" onclick="closePricingModal()">&times;</button>
+      <div class="currency-modal-title">Monthly Plans</div>
+      <div class="currency-modal-subtitle">1 episode ≈ 60–90 minutes of content per week.</div>
+
+      <div class="sponsor-grid">
+        <!-- Smart -->
+        <div style="background: #1a1a1a; padding: 20px; border-radius: 15px; border: 1.5px solid rgba(255, 215, 0, 0.3); text-align: center; display: flex; flex-direction: column; justify-content: space-between; gap: 10px; transform: scale(1.04); box-shadow: 0 8px 30px rgba(0,0,0,0.6);">
+          <div>
+            <div style="font-weight: 800; font-size: 1.25rem; color: #ffd700; margin-bottom: 8px;">Smart</div>
+            <div style="font-size: 1.5rem; font-weight: 700; color: #fff; margin-bottom: 4px;">$14<span style="font-size: 0.8rem; color: var(--text-muted);">/month</span></div>
+            <ul style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.6; padding: 0; text-align: left; margin: 0 0 15px 0; list-style-type: '✓ ';">
+              <li style="margin-bottom: 6px; padding-left: 5px;"><strong style="color:#fff;">1 episode/week</strong></li>
+              <li style="margin-bottom: 6px; padding-left: 5px;">Automatic monthly credits</li>
+            </ul>
+          </div>
+          <button onclick="window.location.href='/pricing?plan=smart'" style="font-size: 0.9rem; padding: 10px; text-transform: none; border-radius: 8px; background: var(--gold-gradient); width: 100%;">Subscribe</button>
+        </div>
+        <!-- Pro -->
+        <div style="background: #1a1a1a; padding: 20px; border-radius: 15px; border: 1px solid rgba(255,255,255,0.1); text-align: center; display: flex; flex-direction: column; justify-content: space-between; gap: 10px;">
+          <div>
+            <div style="font-weight: 800; font-size: 1.25rem; color: #fff; margin-bottom: 8px;">Pro</div>
+            <div style="font-size: 1.5rem; font-weight: 700; color: #fff; margin-bottom: 4px;">$25<span style="font-size: 0.8rem; color: var(--text-muted);">/month</span></div>
+            <ul style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.6; padding: 0; text-align: left; margin: 0 0 15px 0; list-style-type: '✓ ';">
+              <li style="margin-bottom: 6px; padding-left: 5px;"><strong style="color:#fff;">2 episodes/week</strong></li>
+              <li style="margin-bottom: 6px; padding-left: 5px; color:#ffd700;"><strong>+$5 bonus credits</strong> included</li>
+              <li style="margin-bottom: 6px; padding-left: 5px;">Automatic monthly credits</li>
+            </ul>
+          </div>
+          <button onclick="window.location.href='/pricing?plan=pro'" style="font-size: 0.9rem; padding: 10px; text-transform: none; border-radius: 8px; width: 100%;">Subscribe</button>
+        </div>
+        <!-- Future -->
+        <div style="background: #1a1a1a; padding: 20px; border-radius: 15px; border: 1px solid rgba(255,255,255,0.1); text-align: center; display: flex; flex-direction: column; justify-content: space-between; gap: 10px;">
+          <div>
+            <div style="font-weight: 800; font-size: 1.25rem; color: #4da6ff; margin-bottom: 8px;">Future</div>
+            <div style="font-size: 1.5rem; font-weight: 700; color: #fff; margin-bottom: 4px;">$49<span style="font-size: 0.8rem; color: var(--text-muted);">/month</span></div>
+            <ul style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.6; padding: 0; text-align: left; margin: 0 0 15px 0; list-style-type: '✓ ';">
+              <li style="margin-bottom: 6px; padding-left: 5px;"><strong style="color:#fff;">5 episodes/week</strong></li>
+              <li style="margin-bottom: 6px; padding-left: 5px; color:#ffd700;"><strong>+$20 bonus credits</strong> included</li>
+              <li style="margin-bottom: 6px; padding-left: 5px;">Automatic monthly credits</li>
+            </ul>
+          </div>
+          <button onclick="window.location.href='/pricing?plan=future'" style="font-size: 0.9rem; padding: 10px; text-transform: none; border-radius: 8px; width: 100%;">Subscribe</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script type="text/od-defused-script" src="/static/landing.js"></script>
+</body>
+
+</html>

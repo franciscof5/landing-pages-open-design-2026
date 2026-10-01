@@ -1,0 +1,8 @@
+{
+  "enabled": true,
+  "chatExtractionEnabled": false,
+  "profileEnabled": true,
+  "rewriteEnabled": true,
+  "verifyEnabled": true,
+  "extraction": null
+}

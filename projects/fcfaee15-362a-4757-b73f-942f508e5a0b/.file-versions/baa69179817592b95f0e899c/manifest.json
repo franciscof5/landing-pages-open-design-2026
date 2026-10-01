@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 2,
+  "fileName": "curso-vagas-linkedin-ia.html",
+  "currentVersionId": "5e78ed55-a026-4ffc-a259-84f1ff342695",
+  "entries": [
+    {
+      "id": "db7a7a84-569b-4bba-ad52-ec0e41ed07ed",
+      "fileName": "curso-vagas-linkedin-ia.html",
+      "version": 1,
+      "label": "Version 1",
+      "createdAt": 1790697008262,
+      "source": "ai",
+      "prompt": "crie uma landing page para meu curso:\n\nVagas no LinkedIn 10x Mais Rápido com Agente de IA Aplicador\n\nConsiga um emprego 10x mais rápido: IA para Acelerar Candidaturas no LinkedIn\n\nConfigurando o seu agente em nosso curso você vai conseguir:\n\n- Sair na frente de outros candidatos pela mesma vaga aplicando 10x mais rápido\n- Usar IA e automação nas etapas permitidas do processo, mas ainda aplicando manualmente sem quebrar regras da plataforma\n- Configurar automações inteligentes em Python para candidaturas em massa no LinkedIn sem ser bloqueado\n- Criar um sistema de IA que analisa vagas e personaliza aplicações automaticamente para você\n- Aumentar sua velocidade de aplicação em até 10x, alcançando muito mais recrutadores em menos tempo\n- Estratégias para manter seu perfil seguro e relevante enquanto escala suas candidaturas com IA",
+      "size": 29406,
+      "mime": "text/html; charset=utf-8",
+      "kind": "html",
+      "contentPath": "0001-db7a7a84-569b-4bba-ad52-ec0e41ed07ed.html",
+      "promptSource": "message",
+      "contentDigest": "063523877d8e8c21f6f7c27c9661490362a14d84d49acd4a430ef1edd1668f48"
+    },
+    {
+      "id": "5e78ed55-a026-4ffc-a259-84f1ff342695",
+      "fileName": "curso-vagas-linkedin-ia.html",
+      "version": 2,
+      "label": "Version 2",
+      "createdAt": 1790853777826,
+      "source": "ai",
+      "prompt": "quero que voce crie uma subpasta com o titulo oferta e na pagina principal colocar um botao VER OFERTA AGORA\n\n<active-workspace-context>\nOpenDesign selected or inferred these workspace contexts for this turn. Treat absolute paths as reference context unless the user explicitly asks to edit them.\n1. file: curso-vagas-linkedin-ia.html | path: curso-vagas-linkedin-ia.html | absolute: /app/.od/projects/fcfaee15-362a-4757-b73f-942f508e5a0b/curso-vagas-linkedin-ia.html | tab: curso-vagas-linkedin-ia.html\n</active-workspace-context>",
+      "size": 29851,
+      "mime": "text/html; charset=utf-8",
+      "kind": "html",
+      "contentPath": "0002-5e78ed55-a026-4ffc-a259-84f1ff342695.html",
+      "contentDigest": "ec2b262b074cd9f76744948dedb3b100f722341d780b04837797ce5bab1223b6",
+      "promptSource": "message"
+    }
+  ]
+}
