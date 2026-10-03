@@ -1,0 +1,643 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-5GN2382L');</script>
+  <!-- End Google Tag Manager -->
+  <!-- Meta Pixel Code -->
+  <script>
+  !function(f,b,e,v,n,t,s)
+  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+  n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];
+  s.parentNode.insertBefore(t,s)}(window, document,'script',
+  'https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', '28538880289107397');
+  fbq('track', 'PageView');
+  </script>
+  <!-- End Meta Pixel Code -->
+  <title>Agente Aplicador · Vagas no LinkedIn 10x mais rápido</title>
+  <meta name="description" content="Curso de Francisco Matelli para configurar um agente de IA que analisa vagas no LinkedIn, personaliza candidaturas e multiplica sua velocidade — dentro das regras da plataforma." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+  <style>
+    /* ─── tokens ───────────────────────────────────────────────────────── */
+    :root {
+      --bg:      #ffffff;
+      --surface: #f3f6f8;
+      --fg:      #191919;
+      --muted:   #666666;
+      --border:  #d9d9d9;
+      --accent:  #0a66c2;
+      --accent-secondary: #004182;
+
+      --ok:      #191919;
+      --danger:  #004182;
+
+      --accent-soft: color-mix(in srgb, #0a66c2 30%, transparent);
+      --fg-soft:     color-mix(in srgb, #191919 5%, transparent);
+      --muted-strong: color-mix(in srgb, #666666, #191919 45%);
+
+      --font-display: 'Inter', system-ui, -apple-system, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+      --font-body:    'Inter', system-ui, -apple-system, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+      --font-mono:    ui-monospace, 'JetBrains Mono', 'SF Mono', Menlo, 'Liberation Mono', monospace;
+
+      --fs-h1: clamp(44px, 6vw, 76px);
+      --fs-h2: clamp(32px, 4vw, 48px);
+      --fs-h3: 22px;
+      --fs-lead: 19px;
+      --fs-body: 16px;
+      --fs-meta: 13px;
+
+      --gap-xs: 8px;
+      --gap-sm: 16px;
+      --gap-md: 24px;
+      --gap-lg: 32px;
+      --gap-xl: 56px;
+      --gap-2xl: 96px;
+      --container: 1120px;
+      --gutter: 32px;
+
+      --radius: 8px;
+      --radius-lg: 8px;
+    }
+
+    /* ─── reset & base ──────────────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; }
+    html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--fg);
+      font-family: var(--font-body);
+      font-size: var(--fs-body);
+      line-height: 1.55;
+      text-rendering: optimizeLegibility;
+      -webkit-font-smoothing: antialiased;
+    }
+    img, svg { display: block; max-width: 100%; }
+    a { color: inherit; text-decoration: none; }
+    button { font: inherit; cursor: pointer; }
+    p { text-wrap: pretty; }
+    h1, h2, h3, h4 { text-wrap: balance; }
+    section[id] { scroll-margin-top: 84px; }
+
+    /* ─── layout primitives ─────────────────────────────────────────── */
+    .container {
+      max-width: var(--container);
+      margin-inline: auto;
+      padding-inline: var(--gutter);
+    }
+    .section { padding-block: clamp(48px, 8vw, var(--gap-2xl)); }
+    .section + .section { border-top: 1px solid var(--border); }
+    .stack { display: flex; flex-direction: column; }
+    .stack > * + * { margin-top: var(--gap-md); }
+    .row { display: flex; align-items: center; gap: var(--gap-md); }
+    .row-between { display: flex; align-items: center; justify-content: space-between; gap: var(--gap-md); }
+    .grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--gap-lg); }
+    .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--gap-lg); }
+    .grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--gap-md); }
+    .grid-2-1 { display: grid; grid-template-columns: 2fr 1fr; gap: var(--gap-xl); align-items: start; }
+    .grid-1-2 { display: grid; grid-template-columns: 1fr 2fr; gap: var(--gap-xl); align-items: start; }
+    @media (max-width: 920px) {
+      .grid-2, .grid-3, .grid-4, .grid-2-1, .grid-1-2 { grid-template-columns: 1fr; }
+    }
+
+    /* ─── type ──────────────────────────────────────────────────────── */
+    .h1, h1 { font-family: var(--font-display); font-weight: 700; font-size: var(--fs-h1); line-height: 1.04; letter-spacing: -0.025em; margin: 0; }
+    .h2, h2 { font-family: var(--font-display); font-weight: 700; font-size: var(--fs-h2); line-height: 1.1; letter-spacing: -0.02em; margin: 0; }
+    .h3, h3 { font-size: var(--fs-h3); font-weight: 600; line-height: 1.3; letter-spacing: -0.005em; margin: 0; }
+    .lead   { font-size: var(--fs-lead); line-height: 1.55; color: var(--muted-strong); max-width: 60ch; margin: 0; }
+    .eyebrow {
+      font-family: var(--font-mono);
+      font-size: 12px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent-secondary);
+      margin: 0 0 var(--gap-md);
+    }
+    .meta { font-family: var(--font-mono); font-size: var(--fs-meta); color: var(--muted-strong); }
+    .num  { font-family: var(--font-mono); font-variant-numeric: tabular-nums; }
+
+    /* ─── chrome: nav + footer ──────────────────────────────────────── */
+    .topnav {
+      position: sticky; top: 0; z-index: 10;
+      background: color-mix(in srgb, var(--bg) 92%, transparent);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+    .topnav-inner { display: flex; align-items: center; justify-content: space-between; padding-block: 14px; }
+    .topnav .logo { font-family: var(--font-display); font-size: 19px; font-weight: 600; letter-spacing: -0.01em; display: inline-flex; align-items: center; gap: 9px; }
+    .logo-mark { width: 22px; height: 22px; color: var(--fg); flex: none; }
+    .topnav nav { display: flex; gap: var(--gap-lg); }
+    .topnav nav a { font-size: 14px; color: var(--muted-strong); transition: color 0.15s ease; }
+    .topnav nav a:hover { color: var(--fg); }
+    .topnav-cta { display: flex; align-items: center; gap: var(--gap-md); }
+    @media (max-width: 860px) { .topnav nav { display: none; } }
+    .pagefoot { padding-block: var(--gap-xl); color: var(--muted-strong); font-size: 13px; border-top: 1px solid var(--border); }
+    .pagefoot .row-between { flex-wrap: wrap; gap: var(--gap-md); }
+    .pagefoot a:hover { color: var(--fg); }
+
+    /* ─── buttons ───────────────────────────────────────────────────── */
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+      padding: 11px 20px;
+      min-height: 44px;
+      border-radius: var(--radius);
+      border: 1px solid transparent;
+      font-size: 15px;
+      font-weight: 500;
+      letter-spacing: -0.005em;
+      transition: transform 0.05s ease, background 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+    }
+    .btn:active { transform: translateY(1px); }
+    .btn-primary { background: var(--accent); color: var(--bg); border-color: var(--accent); }
+    .btn-primary:hover { background: var(--accent-secondary); color: var(--bg); }
+    .btn-secondary { background: transparent; color: var(--fg); border-color: var(--border); }
+    .btn-secondary:hover { border-color: var(--fg); color: var(--fg); }
+    .btn-ghost { background: transparent; color: var(--fg); border-color: transparent; padding-inline: 8px; }
+    .btn-ghost:hover { color: var(--fg); background: var(--fg-soft); }
+    .btn-arrow::after { content: '→'; transition: transform 0.15s ease; }
+    .btn-arrow:hover::after { transform: translateX(2px); }
+
+    a:focus-visible, button:focus-visible, input:focus-visible, .btn:focus-visible {
+      outline: 2px solid var(--accent-secondary);
+      outline-offset: 2px;
+    }
+
+    /* ─── card / surface ────────────────────────────────────────────── */
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 28px;
+    }
+    .card-flat { background: transparent; border: 0; padding: 0; }
+    .card-rule { background: transparent; border: 0; border-top: 1px solid var(--fg); padding: 24px 0 0; border-radius: 0; }
+
+    /* ─── feature cell (icon + h3 + p) ──────────────────────────────── */
+    .feature .feature-mark {
+      width: 36px; height: 36px;
+      display: grid; place-items: center;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      color: var(--fg);
+      margin-bottom: var(--gap-md);
+    }
+    .feature .feature-mark svg { width: 18px; height: 18px; }
+    .feature h3 { margin-bottom: 6px; }
+    .feature p  { margin: 0; color: var(--muted-strong); font-size: 15px; }
+
+    /* ─── quote / pill / tag ────────────────────────────────────────── */
+    .pill {
+      display: inline-flex; align-items: center; gap: 6px;
+      padding: 4px 10px;
+      background: var(--accent);
+      color: var(--bg);
+      border-radius: var(--radius);
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+    .tag {
+      display: inline-flex; align-items: center;
+      padding: 4px 10px;
+      background: transparent;
+      color: var(--muted-strong);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      font-size: 12px;
+    }
+
+    /* ─── form field ────────────────────────────────────────────────── */
+    .field { display: flex; flex-direction: column; gap: 6px; }
+    .field label { font-size: 13px; color: var(--muted-strong); }
+    .input, .textarea {
+      width: 100%;
+      padding: 11px 14px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      background: var(--surface);
+      color: var(--fg);
+      font: inherit;
+      font-size: 15px;
+    }
+    .input:focus, .textarea:focus {
+      outline: 2px solid var(--accent-soft);
+      border-color: var(--accent);
+    }
+    .textarea { min-height: 96px; resize: vertical; line-height: 1.55; }
+    .form-note { margin: 14px 0 0; font-size: 13px; min-height: 18px; color: var(--muted-strong); text-align: center; }
+    .form-note.is-error { color: var(--danger); }
+    .form-note.is-ok { color: var(--ok); }
+
+    /* ─── table (data-style, no chrome) ─────────────────────────────── */
+    .table-wrap { overflow-x: auto; }
+    .ds-table { width: 100%; border-collapse: collapse; font-size: 14px; min-width: 560px; }
+    .ds-table th, .ds-table td { padding: 14px 16px; text-align: left; border-bottom: 1px solid var(--border); vertical-align: top; }
+    .ds-table th { color: var(--muted-strong); font-weight: 500; font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.04em; text-transform: uppercase; }
+    .ds-table tbody tr:hover { background: var(--fg-soft); }
+    .ds-table .num-col { font-family: var(--font-mono); font-variant-numeric: tabular-nums; text-align: right; }
+    .ds-table th.win { color: var(--fg); border-bottom: 2px solid var(--fg); }
+    .ds-table td.win { color: var(--fg); font-weight: 500; }
+    .ds-table td.lead-col { color: var(--muted-strong); }
+
+    /* ─── image placeholder (kept for the seed, unused) ─────────────── */
+    .ph-img {
+      background:
+        linear-gradient(135deg, var(--accent-soft), var(--fg-soft)),
+        var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      aspect-ratio: 16 / 10;
+      display: grid; place-items: center;
+      color: var(--muted-strong);
+      font-family: var(--font-mono);
+      font-size: 12px;
+      letter-spacing: 0.04em;
+    }
+    .ph-img.square    { aspect-ratio: 1 / 1; }
+    .ph-img.portrait  { aspect-ratio: 3 / 4; }
+    .ph-img.wide      { aspect-ratio: 16 / 9; }
+    .content-img {
+      display: block;
+      max-width: 100%;
+      max-height: min(70vh, 720px);
+      width: auto;
+      height: auto;
+      object-fit: contain;
+      justify-self: center;
+      border-radius: var(--radius-lg);
+    }
+
+    /* ─── divider ───────────────────────────────────────────────────── */
+    .rule  { border: 0; border-top: 1px solid var(--border); margin: 0; }
+    .rule-strong { border: 0; border-top: 1px solid var(--fg); margin: 0; }
+
+    /* ─── hero ──────────────────────────────────────────────────────── */
+    .hero          { padding-block: clamp(64px, 10vw, 120px); }
+    .hero h1       { margin-bottom: var(--gap-md); }
+    .hero .lead    { margin-bottom: var(--gap-lg); }
+    .hero-cta      { display: inline-flex; gap: var(--gap-sm); flex-wrap: wrap; }
+    .hero-split    { display: grid; grid-template-columns: 1.05fr 0.95fr; gap: var(--gap-2xl); align-items: center; }
+    @media (max-width: 920px) { .hero-split { grid-template-columns: 1fr; gap: var(--gap-xl); } }
+    .hero-badges { display: flex; flex-wrap: wrap; gap: var(--gap-xs); margin-top: var(--gap-lg); }
+    .agent-split { display: grid; grid-template-columns: 1.05fr 0.95fr; gap: var(--gap-2xl); align-items: center; }
+    @media (max-width: 920px) { .agent-split { grid-template-columns: 1fr; gap: var(--gap-xl); } }
+
+    /* ─── terminal / product moment ─────────────────────────────────── */
+    .terminal {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      font-family: var(--font-mono);
+      box-shadow: 0 1px 0 color-mix(in srgb, var(--fg) 4%, transparent);
+    }
+    .terminal-bar {
+      display: flex; align-items: center; gap: 7px;
+      padding: 12px 16px;
+      border-bottom: 1px solid var(--border);
+      background: color-mix(in srgb, var(--bg) 55%, var(--surface));
+    }
+    .dot { width: 10px; height: 10px; border-radius: 50%; background: var(--border); }
+    .terminal-name { margin-left: 8px; font-size: 12px; color: var(--muted-strong); letter-spacing: 0.02em; }
+    .terminal-live {
+      margin-left: auto; display: inline-flex; align-items: center; gap: 6px;
+      font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted-strong);
+    }
+    .live-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--accent-secondary); }
+    .terminal-body { padding: 20px 18px 22px; font-size: 13px; line-height: 2; }
+    .terminal-body p { margin: 0; }
+    .prompt { color: var(--fg); font-weight: 600; }
+    .terminal-body .cmd { color: var(--fg); }
+    .terminal-body .out { color: var(--muted-strong); }
+    .terminal-body .ok  { color: var(--ok); font-weight: 600; }
+    .terminal-body .caret { color: var(--fg); }
+    .blink { animation: blink 1.1s steps(1) infinite; }
+    @keyframes blink { 50% { opacity: 0; } }
+    @media (prefers-reduced-motion: reduce) { .blink { animation: none; } }
+    .terminal-caption { margin-top: 16px; font-size: 13px; color: var(--muted-strong); }
+
+    /* ─── log row (etapas) ──────────────────────────────────────────── */
+    .log-row { display: grid; grid-template-columns: 120px 1fr 120px; gap: var(--gap-lg); padding: 24px 0; border-top: 1px solid var(--border); align-items: baseline; }
+    .log-row .meta { color: var(--muted-strong); }
+    .log-row h3 { font-size: 19px; }
+    .log-row .pull { text-align: right; }
+    @media (max-width: 640px) {
+      .log-row { grid-template-columns: 1fr; gap: 8px; }
+      .log-row .pull { text-align: left; }
+    }
+
+    /* ─── signup ────────────────────────────────────────────────────── */
+    .signup-form { display: flex; gap: var(--gap-sm); align-items: flex-end; max-width: 520px; margin: 0 auto; }
+    .signup-form .field { flex: 1; }
+    @media (max-width: 560px) { .signup-form { flex-direction: column; align-items: stretch; } }
+    .signup-wrap { text-align: center; }
+    .signup-wrap .eyebrow { text-align: center; }
+    .signup-wrap .lead { margin: 16px auto 32px; }
+  </style>
+</head>
+<body>
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5GN2382L"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+  <!-- Meta Pixel Code (noscript) -->
+  <noscript><img height="1" width="1" style="display:none"
+  src="https://www.facebook.com/tr?id=28538880289107397&ev=PageView&noscript=1"
+  /></noscript>
+  <!-- End Meta Pixel Code (noscript) -->
+  <header class="topnav" data-od-id="topnav">
+    <div class="container topnav-inner">
+      <a class="logo" href="#topo" aria-label="Agente Aplicador — início">
+        <svg class="logo-mark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true">
+          <path d="M13 2 4 13h6l-1 9 9-11h-6l1-9Z" stroke-linejoin="round"/>
+        </svg>
+        Agente Aplicador
+      </a>
+      <nav aria-label="Navegação principal">
+        <a href="#beneficios">O que você aprende</a>
+        <a href="#comparativo">Comparativo</a>
+        <a href="#como-funciona">Como funciona</a>
+      </nav>
+      <div class="topnav-cta">
+        <a class="btn btn-secondary" href="oferta/index.html">Ver oferta</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="content">
+    <!-- Hero -->
+    <section class="section hero" id="topo" data-od-id="hero">
+      <div class="container hero-split">
+        <div>
+          <p class="eyebrow">Curso · IA para candidaturas no LinkedIn</p>
+          <h1>Vagas no LinkedIn 10x mais rápido com um agente de IA aplicador</h1>
+          <p class="lead">Francisco Matelli vai te ensinar a configurar um agente de IA que analisa cada vaga, personaliza sua candidatura e multiplica sua velocidade — dentro das regras do LinkedIn.</p>
+          <div class="hero-cta">
+            <a class="btn btn-primary" href="oferta/index.html" data-od-id="cta-ver-oferta">VER OFERTA AGORA</a>
+            <a class="btn btn-ghost btn-arrow" href="#como-funciona">Ver como funciona</a>
+          </div>
+          <div class="hero-badges">
+            <span class="tag">Python + IA</span>
+            <span class="tag">Aplicação manual preservada</span>
+            <span class="tag">Sem quebrar regras</span>
+          </div>
+        </div>
+        <div>
+          <img class="content-img" src="Curso-LinkedIn-Retrato-Profissional-com-Arte-LinkedIn-1.png" width="1254" height="1254" alt="Francisco Matelli, instrutor do curso, retratado de boné do LinkedIn sobre um fundo azul pintado" data-od-id="foto-instrutor" />
+        </div>
+      </div>
+    </section>
+
+    <!-- O agente em ação -->
+    <section class="section" id="agente" data-od-id="agente-em-acao">
+      <div class="container agent-split">
+        <div>
+          <div class="terminal" role="img" aria-label="Exemplo de execução do agente de IA aplicando a vagas no LinkedIn">
+            <div class="terminal-bar">
+              <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+              <span class="terminal-name">agente_aplicador.py</span>
+              <span class="terminal-live"><span class="live-dot"></span>ativo</span>
+            </div>
+            <div class="terminal-body">
+              <p class="cmd"><span class="prompt">$</span> python agente_aplicador.py --iniciar</p>
+              <p class="out">→ conectando ao seu perfil e preferências…</p>
+              <p class="out">→ analisando vagas compatíveis com você</p>
+              <p class="out">→ personalizando currículo e mensagem por vaga</p>
+              <p class="out">→ aplicando no ritmo permitido pela plataforma</p>
+              <p><span class="ok">✓</span> <span class="cmd">agente ativo · você só revisa o que importa</span></p>
+              <p class="caret"><span class="prompt">$</span> <span class="blink">▋</span></p>
+            </div>
+          </div>
+          <p class="terminal-caption">O agente roda em segundo plano e deixa você no comando das decisões.</p>
+        </div>
+        <div>
+          <p class="eyebrow">O agente em ação</p>
+          <h2>Trabalho repetitivo no automático, decisões com você.</h2>
+          <p class="lead">O agente lê cada vaga compatível com o seu perfil, monta a candidatura personalizada e aplica no ritmo permitido pela plataforma. Você acompanha o que está sendo enviado e decide o que importa.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Benefícios -->
+    <section class="section" id="beneficios" data-od-id="beneficios">
+      <div class="container stack" style="gap: 56px;">
+        <div style="max-width: 42ch;">
+          <p class="eyebrow">O que você vai conseguir</p>
+          <h2>Seis frentes para sair na frente pela mesma vaga.</h2>
+        </div>
+        <div class="grid-3">
+          <div class="feature card-flat" data-od-id="beneficio-velocidade">
+            <div class="feature-mark">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M13 2 4 13h6l-1 9 9-11h-6l1-9Z" stroke-linejoin="round"/></svg>
+            </div>
+            <h3>Saia na frente pela mesma vaga</h3>
+            <p>Candidate-se 10x mais rápido e chegue antes dos outros candidatos que disputam a mesma posição.</p>
+          </div>
+          <div class="feature card-flat" data-od-id="beneficio-ia-permitida">
+            <div class="feature-mark">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M12 3 5 6v6c0 4.5 3 7.5 7 9 4-1.5 7-4.5 7-9V6l-7-3Z" stroke-linejoin="round"/><path d="m9 12 2 2 4-4" stroke-linecap="round"/></svg>
+            </div>
+            <h3>IA nas etapas permitidas</h3>
+            <p>Automatize o que a plataforma permite e mantenha a candidatura manual onde as regras exigem.</p>
+          </div>
+          <div class="feature card-flat" data-od-id="beneficio-python">
+            <div class="feature-mark">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="m9 8-4 4 4 4M15 8l4 4-4 4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <h3>Automações inteligentes em Python</h3>
+            <p>Configure rotinas para candidaturas em massa no LinkedIn sem ser bloqueado.</p>
+          </div>
+          <div class="feature card-flat" data-od-id="beneficio-analise">
+            <div class="feature-mark">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="11" cy="11" r="6"/><path d="m20 20-3.2-3.2M11 8v6M8 11h6" stroke-linecap="round"/></svg>
+            </div>
+            <h3>Análise de vagas com IA</h3>
+            <p>Um sistema que lê cada anúncio e personaliza suas aplicações automaticamente para você.</p>
+          </div>
+          <div class="feature card-flat" data-od-id="beneficio-alcance">
+            <div class="feature-mark">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M12 14 16 9" stroke-linecap="round"/><path d="M4 18a8 8 0 1 1 16 0" stroke-linecap="round"/><path d="M12 18h.01" stroke-linecap="round"/></svg>
+            </div>
+            <h3>Até 10x mais velocidade</h3>
+            <p>Alcance muito mais recrutadores em menos tempo com um fluxo de candidaturas escalável.</p>
+          </div>
+          <div class="feature card-flat" data-od-id="beneficio-seguranca">
+            <div class="feature-mark">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3" stroke-linecap="round"/></svg>
+            </div>
+            <h3>Perfil seguro e relevante</h3>
+            <p>Estratégias para escalar suas candidaturas sem comprometer a segurança nem a relevância do seu perfil.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Comparativo -->
+    <section class="section" id="comparativo" data-od-id="comparativo">
+      <div class="container">
+        <div style="max-width: 40ch; margin-bottom: 40px;">
+          <p class="eyebrow">Antes e depois</p>
+          <h2>A mesma busca, dois ritmos de candidatura.</h2>
+        </div>
+        <div class="table-wrap">
+          <table class="ds-table">
+            <thead>
+              <tr>
+                <th>Etapa</th>
+                <th>Candidatura manual</th>
+                <th class="win">Com o Agente Aplicador</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Velocidade</td>
+                <td class="lead-col">Uma vaga por vez</td>
+                <td class="win">10x mais rápido</td>
+              </tr>
+              <tr>
+                <td>Personalização</td>
+                <td class="lead-col">Quando sobra tempo</td>
+                <td class="win">Automática, vaga por vaga</td>
+              </tr>
+              <tr>
+                <td>Análise de vagas</td>
+                <td class="lead-col">Você lê cada anúncio</td>
+                <td class="win">A IA lê, filtra e classifica</td>
+              </tr>
+              <tr>
+                <td>Alcance de recrutadores</td>
+                <td class="lead-col">Limitado ao seu dia</td>
+                <td class="win">Muito mais em menos tempo</td>
+              </tr>
+              <tr>
+                <td>Rotina</td>
+                <td class="lead-col">Depende da sua memória</td>
+                <td class="win">O agente roda em segundo plano</td>
+              </tr>
+              <tr>
+                <td>Regras da plataforma</td>
+                <td class="lead-col">—</td>
+                <td class="win">Fluxo seguro, dentro das regras</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- Como funciona -->
+    <section class="section" id="como-funciona" data-od-id="como-funciona">
+      <div class="container">
+        <div style="max-width: 42ch; margin-bottom: 32px;">
+          <p class="eyebrow">Como funciona</p>
+          <h2>Do perfil configurado à candidatura enviada.</h2>
+        </div>
+        <div>
+          <article class="log-row" data-od-id="etapa-1">
+            <span class="meta">Etapa 01</span>
+            <div>
+              <h3>Conecte seu perfil e preferências</h3>
+              <p style="margin: 4px 0 0; color: var(--muted-strong); font-size: 14px;">Informe área, palavras-chave e regiões. O agente passa a entender o que é uma vaga relevante para você.</p>
+            </div>
+            <span class="pull tag">Config.</span>
+          </article>
+          <article class="log-row" data-od-id="etapa-2">
+            <span class="meta">Etapa 02</span>
+            <div>
+              <h3>Deixe a IA analisar as vagas</h3>
+              <p style="margin: 4px 0 0; color: var(--muted-strong); font-size: 14px;">O agente varre as vagas compatíveis e classifica cada uma pela aderência ao seu perfil.</p>
+            </div>
+            <span class="pull tag">IA</span>
+          </article>
+          <article class="log-row" data-od-id="etapa-3">
+            <span class="meta">Etapa 03</span>
+            <div>
+              <h3>Personalize cada candidatura</h3>
+              <p style="margin: 4px 0 0; color: var(--muted-strong); font-size: 14px;">Currículo e mensagem ajustados automaticamente para cada posição, sem trabalho manual repetitivo.</p>
+            </div>
+            <span class="pull tag">Python</span>
+          </article>
+          <article class="log-row" data-od-id="etapa-4">
+            <span class="meta">Etapa 04</span>
+            <div>
+              <h3>Aplique em escala com segurança</h3>
+              <p style="margin: 4px 0 0; color: var(--muted-strong); font-size: 14px;">Envio no ritmo permitido pela plataforma, mantendo as candidaturas manuais onde as regras pedem.</p>
+            </div>
+            <span class="pull tag">Segurança</span>
+          </article>
+        </div>
+        <div style="margin-top: 40px;">
+          <a class="btn btn-primary" href="oferta/index.html" data-od-id="cta-ver-oferta-final">VER OFERTA AGORA</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Inscrição -->
+    <section class="section" id="inscricao" data-od-id="inscricao">
+      <div class="container signup-wrap" style="max-width: 620px;">
+        <p class="eyebrow">Garanta sua vaga</p>
+        <h2>Pare de perder vagas por lentidão.</h2>
+        <p class="lead">Entre na lista e receba as instruções de acesso à próxima turma.</p>
+        <form class="signup-form" id="signup-form" novalidate data-od-id="signup-form">
+          <div class="field">
+            <label for="email">Seu melhor e-mail</label>
+            <input class="input" id="email" name="email" type="email" inputmode="email" autocomplete="email" placeholder="voce@email.com" required />
+          </div>
+          <button class="btn btn-primary" type="submit">Quero minha vaga</button>
+        </form>
+        <p class="form-note" id="form-msg" role="status" aria-live="polite"></p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="pagefoot" data-od-id="footer">
+    <div class="container row-between">
+      <span>© <span class="num">2026</span> Agente Aplicador · Todos os direitos reservados</span>
+      <span class="meta">Curso de automação de candidaturas com IA · <a href="mailto:contato@agenteaplicador.com">contato@agenteaplicador.com</a></span>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      var form = document.getElementById('signup-form');
+      var msg = document.getElementById('form-msg');
+      if (!form) return;
+
+      form.addEventListener('submit', function (event) {
+        event.preventDefault();
+        var input = form.querySelector('#email');
+        var value = (input.value || '').trim();
+        var isValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
+
+        msg.classList.remove('is-error', 'is-ok');
+
+        if (!isValid) {
+          msg.textContent = 'Digite um e-mail válido para continuar.';
+          msg.classList.add('is-error');
+          input.setAttribute('aria-invalid', 'true');
+          input.focus();
+          return;
+        }
+
+        input.removeAttribute('aria-invalid');
+        msg.textContent = 'Pronto! Vamos enviar as instruções para ' + value + '.';
+        msg.classList.add('is-ok');
+        form.reset();
+      });
+    })();
+  </script>
+</body>
+</html>

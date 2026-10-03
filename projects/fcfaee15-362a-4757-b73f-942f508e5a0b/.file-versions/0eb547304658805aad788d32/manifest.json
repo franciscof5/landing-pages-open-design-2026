@@ -1,0 +1,67 @@
+{
+  "schemaVersion": 2,
+  "fileName": "index.html",
+  "currentVersionId": "8d515480-b890-494c-88f3-deeb502a97ce",
+  "entries": [
+    {
+      "id": "389dd6ad-4b4b-482f-92fe-bb7c46191e21",
+      "fileName": "index.html",
+      "version": 1,
+      "label": "Version 1",
+      "createdAt": 1790941248895,
+      "source": "ai",
+      "prompt": "mova a pagina da raiz para pasta curso-linkedin-agente-aplicador-hotmart/index.html e crie um arquivo na raiz com um index genérico aponstando para essa oportunidade\n\n<active-workspace-context>\nOpenDesign selected or inferred these workspace contexts for this turn. Treat absolute paths as reference context unless the user explicitly asks to edit them.\n1. file: curso-vagas-linkedin-ia.html | path: curso-vagas-linkedin-ia.html | absolute: /app/.od/projects/fcfaee15-362a-4757-b73f-942f508e5a0b/curso-vagas-linkedin-ia.html | tab: curso-vagas-linkedin-ia.html\n</active-workspace-context>",
+      "size": 12000,
+      "mime": "text/html; charset=utf-8",
+      "kind": "html",
+      "contentPath": "0001-389dd6ad-4b4b-482f-92fe-bb7c46191e21.html",
+      "promptSource": "message",
+      "contentDigest": "510257277c71fb8aa990dfa0e821f51c44487a2f15eb6d03b43dbeafe8aaf3cb"
+    },
+    {
+      "id": "a30e440a-932f-448c-b597-b9927f810be2",
+      "fileName": "index.html",
+      "version": 2,
+      "label": "Version 2",
+      "createdAt": 1790986020853,
+      "source": "ai",
+      "prompt": "🔴 Gargalos e Pontos de Melhoria (Por que pode não estar convertendo)1. Preço vs. Clareza do Público-Alvo (Objeção Técnica)   O problema: O preço é R$ 397,00 à vista[cite: 2]. Para um valor acima de R$ 200–300 em tráfego frio, a pessoa precisa entender se este é um curso de programação (onde ela terá que programar em Python) ou se é uma ferramenta pronta / extensão / bot no-code onde ela só clica em botões.   O ruído na copy:   No topo diz \"Python + IA\"[cite: 2].   Mais abaixo diz \"Automações inteligentes em Python / Configure rotinas\"[cite: 2].   Quem está procurando emprego e não é dev vai ficar assustado achando que precisa saber programar em Python para usar o agente, desistindo da compra.Se for voltado para Devs / Tech, isso precisa ser explicitamente dito (ex: \"Ideal para profissionais de tecnologia ou quem quer aprender a rodar scripts de IA\"). Se for para qualquer pessoa, precisa ficar claro que o código já vem pronto e ela só precisa apertar \"Play\".2. Falta de Prova Social e Resultados ReaisO problema: Não há depoimentos, print de tela do agente rodando de verdade, prints de mensagens de recrutadores respondendo ou histórico de candidaturas.Como ajustar: Adicione uma seção de prova social ou um vídeo demonstrativo curto (1 a 2 minutos) mostrando a tela real do sistema em funcionamento. Tráfego frio raramente compra um curso de R$ 397 sem ver o produto por dentro.3. Falta de Garantia Incondicional   O problema: Não há menção explícita à garantia de 7 dias (padrão Hotmart) no bloco de preço[cite: 2].   Como ajustar: Adicionar selo de \"Garantia Incondicional de 7 Dias — Teste o agente, se achar que não é para você, devolvemos 100% do seu dinheiro\". Isso reduz o risco percebido na hora do clique no botão de compra.4. Otimização do CTA (Chamada para Ação)   O problema: O botão do topo diz \"VER OFERTA AGORA\"[cite: 2]. \"Ver oferta\" soa passivo.   Como ajustar: Testar CTAs orientados ao benefício, como \"Quero Automatizar Minhas Candidaturas\" ou \"Garantir Acesso ao Agente\".\n\n<active-workspace-context>\nOpenDesign selected or inferred these workspace contexts for this turn. Treat absolute paths as reference context unless the user explicitly asks to edit them.\n1. file: index.html | path: curso-linkedin-agente-aplicador-hotmart/index.html | absolute: /app/.od/projects/fcfaee15-362a-4757-b73f-942f508e5a0b/curso-linkedin-agente-aplicador-hotmart/index.html | tab: curso-linkedin-agente-aplicador-hotmart/index.html\n</active-workspace-context>",
+      "size": 12028,
+      "mime": "text/html; charset=utf-8",
+      "kind": "html",
+      "contentPath": "0002-a30e440a-932f-448c-b597-b9927f810be2.html",
+      "promptSource": "message",
+      "contentDigest": "c67d6ac9172836e8f26ce34bab4613eab9d8b6e3b920f1dc15053653c7b8755a"
+    },
+    {
+      "id": "66f6b8a1-7950-4573-ae09-f15c00a4ce9c",
+      "fileName": "index.html",
+      "version": 3,
+      "label": "Version 3",
+      "createdAt": 1791045906857,
+      "source": "ai",
+      "prompt": "ok a seção da comunidade VIP precisa ser estilizada com as cores do whatasapp, a única seção do site que tem a paleta do whatsapp\n\nmais: usar a caixa alta (UPPERCASE) em todos os botões de CTA (Call to Action)\n\n<active-workspace-context>\nOpenDesign selected or inferred these workspace contexts for this turn. Treat absolute paths as reference context unless the user explicitly asks to edit them.\n1. file: index.html | path: curso-linkedin-agente-aplicador-hotmart/index.html | absolute: /app/.od/projects/fcfaee15-362a-4757-b73f-942f508e5a0b/curso-linkedin-agente-aplicador-hotmart/index.html | tab: curso-linkedin-agente-aplicador-hotmart/index.html\n</active-workspace-context>",
+      "size": 12059,
+      "mime": "text/html; charset=utf-8",
+      "kind": "html",
+      "contentPath": "0003-66f6b8a1-7950-4573-ae09-f15c00a4ce9c.html",
+      "promptSource": "message",
+      "contentDigest": "4301a4fb2227c805364abd1a3b30da1ead9c5f26ac5d72c0cf264106e29858ed"
+    },
+    {
+      "id": "8d515480-b890-494c-88f3-deeb502a97ce",
+      "fileName": "index.html",
+      "version": 4,
+      "label": "Version 4",
+      "createdAt": 1791045942733,
+      "source": "ai",
+      "prompt": "tire o email:  · contato@agenteaplicador.com\n\n<active-workspace-context>\nOpenDesign selected or inferred these workspace contexts for this turn. Treat absolute paths as reference context unless the user explicitly asks to edit them.\n1. file: index.html | path: index.html | absolute: /app/.od/projects/fcfaee15-362a-4757-b73f-942f508e5a0b/index.html | tab: index.html\n</active-workspace-context>",
+      "size": 11979,
+      "mime": "text/html; charset=utf-8",
+      "kind": "html",
+      "contentPath": "0004-8d515480-b890-494c-88f3-deeb502a97ce.html",
+      "contentDigest": "225099fa4a5aaced43d34061623d8c67993eba7db6e43ac027cc73653dd6b749",
+      "promptSource": "message"
+    }
+  ]
+}

@@ -1,0 +1,52 @@
+{
+  "schemaVersion": 2,
+  "fileName": "index.html",
+  "currentVersionId": "39ae1cc5-55bd-4331-b5ef-da57317cd564",
+  "entries": [
+    {
+      "id": "e41aa6fd-e7b6-4680-bd55-6a9c19dad2eb",
+      "fileName": "index.html",
+      "version": 1,
+      "label": "Version 1",
+      "createdAt": 1790870827873,
+      "source": "ai",
+      "prompt": "renomeie o arquivo da raiz para index.html\n\n<active-workspace-context>\nOpenDesign selected or inferred these workspace contexts for this turn. Treat absolute paths as reference context unless the user explicitly asks to edit them.\n1. file: curso-canais-dark.html | path: curso-canais-dark.html | absolute: /app/.od/projects/ff67b4fb-77ea-4d60-8f1e-ff353f946112/curso-canais-dark.html | tab: curso-canais-dark.html\n</active-workspace-context>",
+      "size": 632503,
+      "mime": "text/html; charset=utf-8",
+      "kind": "html",
+      "contentPath": "0001-e41aa6fd-e7b6-4680-bd55-6a9c19dad2eb.html",
+      "promptSource": "message",
+      "contentDigest": "7aef21c5cbd595000100c97a9e23b18024f0ccd09d764d9c518d7c264bbf2180"
+    },
+    {
+      "id": "2f371aa2-573a-4f25-9feb-32d6814d37a9",
+      "fileName": "index.html",
+      "version": 2,
+      "label": "Version 2",
+      "createdAt": 1790871123871,
+      "source": "ai",
+      "prompt": "agora essa pagina chamada de index.html vai ser movida para uma subpasta chamada curso-canal-dark e na raiz index.html vai ser um índice de todas as oportunidades (landing pages) da ByCuts.com, que no momento só vai indicar o curso do canal dark\n\n<active-workspace-context>\nOpenDesign selected or inferred these workspace contexts for this turn. Treat absolute paths as reference context unless the user explicitly asks to edit them.\n1. file: index.html | path: index.html | absolute: /app/.od/projects/ff67b4fb-77ea-4d60-8f1e-ff353f946112/index.html | tab: index.html\n</active-workspace-context>",
+      "size": 343105,
+      "mime": "text/html; charset=utf-8",
+      "kind": "html",
+      "contentPath": "0002-2f371aa2-573a-4f25-9feb-32d6814d37a9.html",
+      "promptSource": "message",
+      "contentDigest": "65d15f8ad2e3461ee4a9ed76ba8015945a4c5660258da6cb7ba6e5773cb2504d"
+    },
+    {
+      "id": "39ae1cc5-55bd-4331-b5ef-da57317cd564",
+      "fileName": "index.html",
+      "version": 3,
+      "label": "Version 3",
+      "createdAt": 1790880523395,
+      "source": "ai",
+      "prompt": "instale o gtag em todos os htmls:\n\n<!-- Google Tag Manager -->\n<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':\nnew Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],\nj=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=\n'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);\n})(window,document,'script','dataLayer','GTM-KJPHL688');</script>\n<!-- End Google Tag Manager -->\n\n<!-- Google Tag Manager (noscript) -->\n<noscript><iframe src=\"https://www.googletagmanager.com/ns.html?id=GTM-KJPHL688\"\nheight=\"0\" width=\"0\" style=\"display:none;visibility:hidden\"></iframe></noscript>\n<!-- End Google Tag Manager (noscript) -->\n\n<active-workspace-context>\nOpenDesign selected or inferred these workspace contexts for this turn. Treat absolute paths as reference context unless the user explicitly asks to edit them.\n1. design-files: Arquivos de design | absolute: /app/.od/projects/ff67b4fb-77ea-4d60-8f1e-ff353f946112 | tab: __design_files__\n</active-workspace-context>",
+      "size": 343791,
+      "mime": "text/html; charset=utf-8",
+      "kind": "html",
+      "contentPath": "0003-39ae1cc5-55bd-4331-b5ef-da57317cd564.html",
+      "contentDigest": "40e9f118731b7502449a33d0ba8229721cb6d2f95914c83c4dd8e5a069a59ef2",
+      "promptSource": "message"
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "version": 1,
+  "kind": "html",
+  "title": "ByCuts · Oportunidades",
+  "entry": "index.html",
+  "renderer": "html",
+  "status": "complete",
+  "exports": [
+    "html",
+    "pdf",
+    "zip"
+  ],
+  "createdAt": "2026-10-01T12:56:34.554Z",
+  "updatedAt": "2026-10-01T16:10:00.000Z",
+  "metadata": {
+    "inferred": false,
+    "reconciled": true
+  }
+}

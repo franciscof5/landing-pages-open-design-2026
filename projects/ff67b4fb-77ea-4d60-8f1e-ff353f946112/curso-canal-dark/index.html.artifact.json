@@ -1,0 +1,19 @@
+{
+  "version": 1,
+  "kind": "html",
+  "title": "Curso grátis: canais Dark no YouTube com ByCuts",
+  "entry": "curso-canal-dark/index.html",
+  "renderer": "html",
+  "status": "complete",
+  "exports": [
+    "html",
+    "pdf",
+    "zip"
+  ],
+  "createdAt": "2026-10-01T12:56:34.554Z",
+  "updatedAt": "2026-10-01T12:56:34.554Z",
+  "metadata": {
+    "inferred": true,
+    "reconciled": true
+  }
+}

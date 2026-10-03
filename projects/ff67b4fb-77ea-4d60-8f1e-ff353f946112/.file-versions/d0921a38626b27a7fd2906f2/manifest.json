@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 2,
+  "fileName": "curso-canal-dark/index.html",
+  "currentVersionId": "6e6e7e8a-6e80-41ff-ade5-26f55bddba96",
+  "entries": [
+    {
+      "id": "e3c84b55-cfd9-4700-9781-d93beccf7057",
+      "fileName": "curso-canal-dark/index.html",
+      "version": 1,
+      "label": "Version 1",
+      "createdAt": 1790871123860,
+      "source": "ai",
+      "prompt": "agora essa pagina chamada de index.html vai ser movida para uma subpasta chamada curso-canal-dark e na raiz index.html vai ser um índice de todas as oportunidades (landing pages) da ByCuts.com, que no momento só vai indicar o curso do canal dark\n\n<active-workspace-context>\nOpenDesign selected or inferred these workspace contexts for this turn. Treat absolute paths as reference context unless the user explicitly asks to edit them.\n1. file: index.html | path: index.html | absolute: /app/.od/projects/ff67b4fb-77ea-4d60-8f1e-ff353f946112/index.html | tab: index.html\n</active-workspace-context>",
+      "size": 632503,
+      "mime": "text/html; charset=utf-8",
+      "kind": "html",
+      "contentPath": "0001-e3c84b55-cfd9-4700-9781-d93beccf7057.html",
+      "promptSource": "message",
+      "contentDigest": "7aef21c5cbd595000100c97a9e23b18024f0ccd09d764d9c518d7c264bbf2180"
+    },
+    {
+      "id": "6e6e7e8a-6e80-41ff-ade5-26f55bddba96",
+      "fileName": "curso-canal-dark/index.html",
+      "version": 2,
+      "label": "Version 2",
+      "createdAt": 1790880523399,
+      "source": "ai",
+      "prompt": "instale o gtag em todos os htmls:\n\n<!-- Google Tag Manager -->\n<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':\nnew Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],\nj=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=\n'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);\n})(window,document,'script','dataLayer','GTM-KJPHL688');</script>\n<!-- End Google Tag Manager -->\n\n<!-- Google Tag Manager (noscript) -->\n<noscript><iframe src=\"https://www.googletagmanager.com/ns.html?id=GTM-KJPHL688\"\nheight=\"0\" width=\"0\" style=\"display:none;visibility:hidden\"></iframe></noscript>\n<!-- End Google Tag Manager (noscript) -->\n\n<active-workspace-context>\nOpenDesign selected or inferred these workspace contexts for this turn. Treat absolute paths as reference context unless the user explicitly asks to edit them.\n1. design-files: Arquivos de design | absolute: /app/.od/projects/ff67b4fb-77ea-4d60-8f1e-ff353f946112 | tab: __design_files__\n</active-workspace-context>",
+      "size": 633189,
+      "mime": "text/html; charset=utf-8",
+      "kind": "html",
+      "contentPath": "0002-6e6e7e8a-6e80-41ff-ade5-26f55bddba96.html",
+      "contentDigest": "5b737489317ecb492bf0bd47b7d5517ce46f83ab29884cdd3c07edb141c63ca6",
+      "promptSource": "message"
+    }
+  ]
+}

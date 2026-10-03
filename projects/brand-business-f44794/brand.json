@@ -1,0 +1,163 @@
+{
+  "name": "OpenDesign | LinkedIn",
+  "tagline": "> Category: Brands",
+  "description": "> Category: Brands",
+  "sourceUrl": "https://business.linkedin.com/?mcid=7186170947316404241",
+  "logo": {
+    "primary": "logos/favicon.svg",
+    "alternates": [
+      "logos/favicon-1.png",
+      "logos/favicon-2.ico",
+      "logos/og-image-3.jpg"
+    ],
+    "notes": "No logo supplied in pasted DESIGN.md."
+  },
+  "colors": [
+    {
+      "role": "background",
+      "hex": "#ffffff",
+      "oklch": "",
+      "name": "Background",
+      "usage": "page canvas"
+    },
+    {
+      "role": "foreground",
+      "hex": "#191919",
+      "oklch": "",
+      "name": "Foreground",
+      "usage": "body text and headings"
+    },
+    {
+      "role": "accent",
+      "hex": "#0a66c2",
+      "oklch": "",
+      "name": "Accent",
+      "usage": "primary actions and emphasis"
+    },
+    {
+      "role": "surface",
+      "hex": "#f3f6f8",
+      "oklch": "",
+      "name": "Surface",
+      "usage": "cards and panels"
+    },
+    {
+      "role": "muted",
+      "hex": "#666666",
+      "oklch": "",
+      "name": "Muted",
+      "usage": "secondary text and metadata"
+    },
+    {
+      "role": "border",
+      "hex": "#d9d9d9",
+      "oklch": "",
+      "name": "Border",
+      "usage": "rules and dividers"
+    },
+    {
+      "role": "accent-secondary",
+      "hex": "#004182",
+      "oklch": "",
+      "name": "Accent secondary",
+      "usage": "secondary actions and links"
+    }
+  ],
+  "typography": {
+    "display": {
+      "family": "Inter",
+      "fallbacks": [
+        "system-ui",
+        "-apple-system",
+        "Segoe UI",
+        "Helvetica Neue",
+        "Arial",
+        "sans-serif"
+      ],
+      "weights": [
+        400,
+        700
+      ]
+    },
+    "body": {
+      "family": "Inter",
+      "fallbacks": [
+        "system-ui",
+        "-apple-system",
+        "Segoe UI",
+        "Helvetica Neue",
+        "Arial",
+        "sans-serif"
+      ],
+      "weights": [
+        400,
+        700
+      ]
+    }
+  },
+  "voice": {
+    "adjectives": [],
+    "tone": "> Category: Brands",
+    "messagingPillars": [
+      "> Category: Brands"
+    ],
+    "vocabulary": {
+      "use": [],
+      "avoid": []
+    }
+  },
+  "imagery": {
+    "style": "",
+    "subjects": [],
+    "treatment": "",
+    "avoid": [],
+    "samples": [
+      {
+        "file": "imagery/cover-0.jpg",
+        "kind": "cover",
+        "caption": "Social cover image"
+      },
+      {
+        "file": "imagery/hero-1.avif",
+        "kind": "hero",
+        "caption": "Hero image"
+      },
+      {
+        "file": "imagery/hero-2.avif",
+        "kind": "hero",
+        "caption": "Hero image 2"
+      },
+      {
+        "file": "imagery/hero-3.avif",
+        "kind": "hero",
+        "caption": "Hero image 3"
+      },
+      {
+        "file": "imagery/hero-4.avif",
+        "kind": "hero",
+        "caption": "Hero image 4"
+      },
+      {
+        "file": "imagery/hero-5.avif",
+        "kind": "hero",
+        "caption": "Hero image 5"
+      },
+      {
+        "file": "imagery/hero-6.avif",
+        "kind": "hero",
+        "caption": "Hero image 6"
+      },
+      {
+        "file": "imagery/hero-7.avif",
+        "kind": "hero",
+        "caption": "Hero image 7"
+      }
+    ]
+  },
+  "layout": {
+    "radius": "8px",
+    "borderWeight": "1px",
+    "spacing": "8px baseline grid",
+    "postureRules": []
+  }
+}

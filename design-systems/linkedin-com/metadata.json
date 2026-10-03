@@ -1,0 +1,14 @@
+{
+  "title": "LinkedIn",
+  "category": "Brands",
+  "surface": "web",
+  "status": "published",
+  "artifactMode": "agent-managed",
+  "createdAt": "2026-10-02T10:10:41.806Z",
+  "updatedAt": "2026-10-02T10:10:43.410Z",
+  "provenance": {
+    "companyBlurb": "Login to LinkedIn to keep in touch with people you know, share ideas, and build your career.",
+    "sourceNotes": "Extracted from https://www.linkedin.com/feed"
+  },
+  "projectId": "brand-linkedin-00419d"
+}

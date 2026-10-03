@@ -23,3 +23,25 @@ back if you change your mind.
 - [YouTube typography](rule_brand_youtube_type.md) — Type uses YouTube's font families with correct fallbacks.
 
 - [YouTube layout posture](rule_brand_youtube_layout.md) — Layout follows YouTube's posture.
+
+- [LinkedIn visual direction](user_brand_linkedin_visual.md) — Default palette, type and layout for LinkedIn.
+
+- [LinkedIn voice](reference_brand_linkedin_voice.md) — Tone, vocabulary and imagery for LinkedIn.
+
+- [LinkedIn palette only](rule_brand_linkedin_palette.md) — Only LinkedIn's registered palette is used for color.
+
+- [LinkedIn typography](rule_brand_linkedin_type.md) — Type uses LinkedIn's font families with correct fallbacks.
+
+- [LinkedIn layout posture](rule_brand_linkedin_layout.md) — Layout follows LinkedIn's posture.
+
+- [OpenDesign | LinkedIn visual direction](user_brand_opendesign_linkedin_visual.md) — Default palette, type and layout for OpenDesign | LinkedIn.
+
+- [OpenDesign | LinkedIn voice](reference_brand_opendesign_linkedin_voice.md) — Tone, vocabulary and imagery for OpenDesign | LinkedIn.
+
+- [OpenDesign | LinkedIn palette only](rule_brand_opendesign_linkedin_palette.md) — Only OpenDesign | LinkedIn's registered palette is used for color.
+
+- [OpenDesign | LinkedIn typography](rule_brand_opendesign_linkedin_type.md) — Type uses OpenDesign | LinkedIn's font families with correct fallbacks.
+
+- [OpenDesign | LinkedIn layout posture](rule_brand_opendesign_linkedin_layout.md) — Layout follows OpenDesign | LinkedIn's posture.
+
+- [OpenDesign | LinkedIn logo usage](rule_brand_opendesign_linkedin_logo.md) — OpenDesign | LinkedIn logo usage follows brand guidance.
