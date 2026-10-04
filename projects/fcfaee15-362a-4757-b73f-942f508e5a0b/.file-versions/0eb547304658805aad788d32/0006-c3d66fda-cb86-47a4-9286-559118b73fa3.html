@@ -29,7 +29,6 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
-  <link rel="icon" type="image/png" href="f5sites-logo-silom-inverted-100.png" />
   <style>
     :root {
       /* Paleta extraída de Francisco-Matelli_-IA_-Nuvem-e-DevOps.png */
@@ -100,7 +99,7 @@
     }
     .topnav-inner { display: flex; align-items: center; justify-content: space-between; gap: var(--gap-md); padding-block: 14px; }
     .topnav .logo { font-family: var(--font-display); font-size: 19px; font-weight: 700; letter-spacing: -0.01em; display: inline-flex; align-items: center; gap: 9px; }
-    .logo-mark { width: 30px; height: 30px; border-radius: var(--radius); flex: none; box-shadow: 0 0 18px -6px var(--glow); }
+    .logo-mark { width: 22px; height: 22px; color: var(--accent); flex: none; }
     .topnav nav { display: flex; gap: var(--gap-lg); }
     .topnav nav a { font-size: 14px; color: var(--muted-strong); transition: color 0.15s ease; }
     .topnav nav a:hover { color: var(--fg); }
@@ -234,7 +233,10 @@
   <header class="topnav">
     <div class="container topnav-inner">
       <a class="logo" href="#topo" aria-label="F5 Sites — início">
-        <img class="logo-mark" src="f5sites-logo-silom-inverted-100.png" width="30" height="30" alt="" />
+        <svg class="logo-mark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <path d="M5 19V5h11M5 12h8" stroke-linecap="round" stroke-linejoin="round" />
+          <circle cx="17" cy="15" r="3.2" />
+        </svg>
         F5 Sites
       </a>
       <nav aria-label="Navegação principal">
@@ -260,7 +262,7 @@
         </div>
         <figure class="figure" data-od-id="hero-retrato">
           <div class="media-frame">
-            <img class="content-img" src="Francisco-Matelli_-IA_-Nuvem-e-DevOps.jpg" width="800" height="800" alt="Francisco Matelli, à frente da F5 Sites, em arte com IA, nuvem e DevOps" />
+            <img class="content-img" src="Francisco-Matelli_-IA_-Nuvem-e-DevOps.png" width="1254" height="1254" alt="Francisco Matelli, à frente da F5 Sites, em arte com IA, nuvem e DevOps" />
           </div>
           <figcaption>Francisco Matelli · IA, Nuvem e DevOps</figcaption>
         </figure>

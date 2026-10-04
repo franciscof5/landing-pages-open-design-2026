@@ -105,8 +105,9 @@
       "mime": "text/html; charset=utf-8",
       "kind": "html",
       "contentPath": "0007-04f479c7-5fc7-4645-9948-7364df9e7dbe.html",
-      "contentDigest": "df370e5108d8860279b500a99564435b52c31bd94aa82ab6fa840d69af156289",
-      "promptSource": "message"
+      "promptSource": "message",
+      "contentDigest": "df370e5108d8860279b500a99564435b52c31bd94aa82ab6fa840d69af156289"
     }
-  ]
+  ],
+  "deletedAt": 1791049431665
 }
