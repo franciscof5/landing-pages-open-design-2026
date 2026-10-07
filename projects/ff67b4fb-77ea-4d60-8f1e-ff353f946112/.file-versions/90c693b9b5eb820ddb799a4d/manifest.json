@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 2,
+  "fileName": "curso-renda-extra-bycuts/index.html",
+  "currentVersionId": "40f7aee4-9d3c-47ab-9d13-7076a1d3eca9",
+  "entries": [
+    {
+      "id": "40f7aee4-9d3c-47ab-9d13-7076a1d3eca9",
+      "fileName": "curso-renda-extra-bycuts/index.html",
+      "version": 1,
+      "label": "Version 1",
+      "createdAt": 1791139825269,
+      "source": "ai",
+      "prompt": "continue\n\n<active-workspace-context>\nOpenDesign selected or inferred these workspace contexts for this turn. Treat absolute paths as reference context unless the user explicitly asks to edit them.\n1. file: index.html | path: curso-canal-dark/index.html | absolute: /app/.od/projects/ff67b4fb-77ea-4d60-8f1e-ff353f946112/curso-canal-dark/index.html | tab: curso-canal-dark/index.html\n</active-workspace-context>",
+      "size": 691378,
+      "mime": "text/html; charset=utf-8",
+      "kind": "html",
+      "contentPath": "0001-40f7aee4-9d3c-47ab-9d13-7076a1d3eca9.html",
+      "contentDigest": "651a722b222d4939099c5a9452a373859349b0c229e027ff728a10093a53d20e",
+      "promptSource": "message"
+    }
+  ]
+}

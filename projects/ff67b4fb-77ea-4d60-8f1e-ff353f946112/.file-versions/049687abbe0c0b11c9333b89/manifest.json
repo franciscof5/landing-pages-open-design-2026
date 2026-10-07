@@ -1,0 +1,67 @@
+{
+  "schemaVersion": 2,
+  "fileName": "verticalizar-conteudo-horizontal/index.html",
+  "currentVersionId": "d3f8cece-8165-484f-beac-7b5a77b82e0a",
+  "entries": [
+    {
+      "id": "cda26920-b851-40f3-aa2d-9eaeb4bccbb2",
+      "fileName": "verticalizar-conteudo-horizontal/index.html",
+      "version": 1,
+      "label": "Version 1",
+      "createdAt": 1791311732444,
+      "source": "ai",
+      "prompt": "gere uma landing page na versao dark com o botao toogle em verticalizar-conteudo-horizontal/index.html para o produto/servico:\n\nTransformamos acervos históricos e novos programas de canais (use logos da rede globo, record, band, sbt, redetv, MTV, CNN, JovemPan) de TV e produtoras em conteúdos verticais de alto engajamento para Reels, TikTok e Shorts, utilizando tecnologia de corte e enquadramento inteligente (com visao computacional para identificar pessoas e reenquadrar para versao vertical) por minuto de vídeo. Nossa solução automatiza a adaptação do seu arquivo 16:9 em grande escala, otimizando o acompanhamento dos sujeitos em cena e a inserção de legendas dinâmicas para você atualizar o catálogo \n\nAqui está a explicação do esquema de preços apresentada de forma direta e sem tabelas.\nEstrutura dos Preços em 3 Faixas\n\n    Faixa Pontual (Até 10 horas / 600 minutos):\n    Cobrado a R$ 10,00 por minuto. Uma demanda de 10 horas de material fica em R$ 6.000,00 no total. Indicado para testes de formato, pilotos de programas e cortes isolados.\n\n    Faixa de Pacote Médio (50 horas / 3.000 minutos):\n    Cobrado a R$ 5,00 por minuto (ou R$ 300,00 por hora de programa). O lote total de 50 horas sai por R$ 15.000,00. Ideal para temporadas fechadas, quadros específicos ou acervos regionais.\n\n    Faixa de Grande Escala (200 horas / 12.000 minutos ou mais):\n    Cobrado entre R$ 2,00 e R$ 3,00 por minuto (ou R$ 120,00 a R$ 180,00 por hora de programa). O total para 200 horas varia entre R$ 24.000,00 e R$ 36.000,00. Voltado para grades completas de canais de TV e grandes produtoras.\n\nArgumentos de Venda para o Cliente\n\n    Venda por hora de conteúdo: Falar em R$ 300,00 para adaptar uma hora inteira de televisão em dezenas de Reels e TikToks soa muito mais vantajoso para uma emissora do que falar no valor global do contrato.\n\n    Comparativo com equipe interna: A conversão manual de 1 hora de acervo (enquadramento 9:16, cortes e legendas) exige de 2 a 3 horas de um editor humano. O serviço automatizado entrega o mesmo volume por uma fração desse custo.\n\n    Sustentabilidade da margem: O custo real com servidores e processamento de mídia fica bem abaixo de R$ 1,00 por minuto, garantindo alta rentabilidade mesmo na faixa de maior desconto.\n\n<active-workspace-context>\nOpenDesign selected or inferred these workspace contexts for this turn. Treat absolute paths as reference context unless the user explicitly asks to edit them.\n1. design-files: Arquivos de design | absolute: /app/.od/projects/ff67b4fb-77ea-4d60-8f1e-ff353f946112 | tab: __design_files__\n</active-workspace-context>",
+      "size": 45603,
+      "mime": "text/html; charset=utf-8",
+      "kind": "html",
+      "contentPath": "0001-cda26920-b851-40f3-aa2d-9eaeb4bccbb2.html",
+      "promptSource": "message",
+      "contentDigest": "be9d190e095b8ee9a6a9cd98c3174e5a56bd3d9e85fb80c83c629bf1f8c1f937"
+    },
+    {
+      "id": "2fb4b3eb-d73d-41de-b946-328756bab0b2",
+      "fileName": "verticalizar-conteudo-horizontal/index.html",
+      "version": 2,
+      "label": "Version 2",
+      "createdAt": 1791312471364,
+      "source": "ai",
+      "prompt": "mude: Transforme seu acervo 16:9 em cortes verticais que viralizam em Seu programa de TV pronto para Internet, use o v'ideo hero-v2-lq.mp4 na hero section no lugar dessas fotos, procure e baixe os logos em SVG de cada uma das emissoras\n\n Globo Record Band SBT RedeTV! MTV CNN Jovem Pan\n\nno geral a parte de preco parece uma instrucao para um vendedor, precisa explicar para o cliente, na linguagem dele, e na tabela de pre'co as linhas abaixo do valor (como até 10h · 600 min · R$6.000 no total) devem estar nos bullets\n\n<active-workspace-context>\nOpenDesign selected or inferred these workspace contexts for this turn. Treat absolute paths as reference context unless the user explicitly asks to edit them.\n1. file: index.html | path: verticalizar-conteudo-horizontal/index.html | absolute: /app/.od/projects/ff67b4fb-77ea-4d60-8f1e-ff353f946112/verticalizar-conteudo-horizontal/index.html | tab: verticalizar-conteudo-horizontal/index.html\n</active-workspace-context>",
+      "size": 45027,
+      "mime": "text/html; charset=utf-8",
+      "kind": "html",
+      "contentPath": "0002-2fb4b3eb-d73d-41de-b946-328756bab0b2.html",
+      "promptSource": "message",
+      "contentDigest": "263158b0c8b17fb73ff03052d3a29540c5249d2f16406b6bac913027d54b1fc9"
+    },
+    {
+      "id": "6a5ddfad-9f0a-44cb-ac72-0458cc4c7e3c",
+      "fileName": "verticalizar-conteudo-horizontal/index.html",
+      "version": 3,
+      "label": "Version 3",
+      "createdAt": 1791312733701,
+      "source": "ai",
+      "prompt": "pode aumentar os icones das emissoras, titulo da hero: Transforme todo seu acervo de TV  em formato vertical\n\n<active-workspace-context>\nOpenDesign selected or inferred these workspace contexts for this turn. Treat absolute paths as reference context unless the user explicitly asks to edit them.\n1. file: index.html | path: verticalizar-conteudo-horizontal/index.html | absolute: /app/.od/projects/ff67b4fb-77ea-4d60-8f1e-ff353f946112/verticalizar-conteudo-horizontal/index.html | tab: verticalizar-conteudo-horizontal/index.html\n</active-workspace-context>",
+      "size": 45019,
+      "mime": "text/html; charset=utf-8",
+      "kind": "html",
+      "contentPath": "0003-6a5ddfad-9f0a-44cb-ac72-0458cc4c7e3c.html",
+      "promptSource": "message",
+      "contentDigest": "49fdf56bc202dee487211a509df5d26db6d7a6d20552ef27532a56cff98ae748"
+    },
+    {
+      "id": "d3f8cece-8165-484f-beac-7b5a77b82e0a",
+      "fileName": "verticalizar-conteudo-horizontal/index.html",
+      "version": 4,
+      "label": "Version 4",
+      "createdAt": 1791313019050,
+      "source": "ai",
+      "prompt": "coloca um precificado antes de Por que adaptar conosco com um slider quantas horas voce quer verticalizar, ai respeita as faixas e mostra o preco final\n\n<active-workspace-context>\nOpenDesign selected or inferred these workspace contexts for this turn. Treat absolute paths as reference context unless the user explicitly asks to edit them.\n1. file: index.html | path: verticalizar-conteudo-horizontal/index.html | absolute: /app/.od/projects/ff67b4fb-77ea-4d60-8f1e-ff353f946112/verticalizar-conteudo-horizontal/index.html | tab: verticalizar-conteudo-horizontal/index.html\n</active-workspace-context>",
+      "size": 53018,
+      "mime": "text/html; charset=utf-8",
+      "kind": "html",
+      "contentPath": "0004-d3f8cece-8165-484f-beac-7b5a77b82e0a.html",
+      "contentDigest": "9832f1a737c6f0a78b5e3e547d9b2e40468a1b3b3837dfc116159186ced94a79",
+      "promptSource": "message"
+    }
+  ]
+}

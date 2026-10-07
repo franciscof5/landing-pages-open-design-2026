@@ -1,0 +1,19 @@
+{
+  "version": 1,
+  "kind": "html",
+  "title": "mentoria/francisco/index.html",
+  "entry": "mentoria/francisco/index.html",
+  "renderer": "html",
+  "status": "complete",
+  "exports": [
+    "html",
+    "pdf",
+    "zip"
+  ],
+  "createdAt": "2026-10-04T20:58:45.409Z",
+  "updatedAt": "2026-10-04T20:58:45.409Z",
+  "metadata": {
+    "inferred": true,
+    "reconciled": true
+  }
+}
