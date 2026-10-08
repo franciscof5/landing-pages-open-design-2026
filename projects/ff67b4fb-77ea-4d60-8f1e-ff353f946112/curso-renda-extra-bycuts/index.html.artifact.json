@@ -1,0 +1,19 @@
+{
+  "version": 1,
+  "kind": "html",
+  "title": "curso-renda-extra-bycuts/index.html",
+  "entry": "curso-renda-extra-bycuts/index.html",
+  "renderer": "html",
+  "status": "complete",
+  "exports": [
+    "html",
+    "pdf",
+    "zip"
+  ],
+  "createdAt": "2026-10-04T18:49:38.825Z",
+  "updatedAt": "2026-10-04T18:49:38.825Z",
+  "metadata": {
+    "inferred": true,
+    "reconciled": true
+  }
+}

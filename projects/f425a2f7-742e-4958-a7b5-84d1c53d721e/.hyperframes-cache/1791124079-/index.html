@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1920, height=1080" />
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <style>
+      * { box-sizing: border-box; margin: 0; padding: 0; }
+      html, body { width: 1920px; height: 1080px; overflow: hidden; background: #000000; }
+      body { font-family: Outfit, system-ui, -apple-system, "Segoe UI", "Helvetica Neue", Arial, sans-serif; }
+      #root { position: relative; width: 1920px; height: 1080px; overflow: hidden; background: #000000; color: #ffffff; }
+      .scene { position: absolute; inset: 0; width: 100%; height: 100%; overflow: hidden; background: #000000; }
+      #scene2, #scene3 { opacity: 0; }
+      .scene-content { display: flex; flex-direction: column; justify-content: center; width: 100%; height: 100%; padding: 110px 152px; box-sizing: border-box; }
+      .eyebrow { color: #ffd700; font-size: 25px; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; }
+      .rule { width: 108px; height: 8px; margin: 30px 0 34px; background: #ffd700; }
+      .headline { max-width: 1440px; font-size: 104px; font-weight: 900; letter-spacing: -0.055em; line-height: 0.9; }
+      .headline em { color: #ffd700; font-style: normal; }
+      .support { max-width: 980px; margin-top: 38px; color: #f5f5f5; font-size: 34px; font-weight: 350; letter-spacing: -0.02em; line-height: 1.25; }
+      .grain { position: absolute; right: -120px; top: -170px; width: 760px; height: 760px; border: 1px solid #dbdbdb; border-radius: 50%; opacity: 0.22; }
+      .grain::before, .grain::after { content: ""; position: absolute; inset: 84px; border: 1px solid #dbdbdb; border-radius: 50%; }
+      .grain::after { inset: 170px; border-color: #ffd700; }
+      .scene-two { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 88px; align-items: center; width: 100%; height: 100%; padding: 112px 152px; }
+      .stat { color: #ffd700; font-size: 170px; font-weight: 900; letter-spacing: -0.08em; line-height: 0.85; font-variant-numeric: tabular-nums; }
+      .stat-label { margin-top: 22px; font-size: 32px; font-weight: 700; letter-spacing: -0.03em; }
+      .points { display: flex; flex-direction: column; gap: 18px; }
+      .point { display: flex; align-items: center; gap: 20px; padding: 23px 0; border-top: 1px solid #dbdbdb; color: #f5f5f5; font-size: 31px; font-weight: 550; letter-spacing: -0.025em; }
+      .point:last-child { border-bottom: 1px solid #dbdbdb; }
+      .dot { width: 17px; height: 17px; flex: 0 0 17px; border-radius: 50%; background: #c8102e; }
+      .scene-three .scene-content { justify-content: space-between; padding: 104px 152px 112px; }
+      .topline { display: flex; justify-content: space-between; align-items: center; color: #8c8c8c; font-size: 23px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; }
+      .badge { color: #000000; background: #ffd700; padding: 12px 18px; border-radius: 8px; }
+      .cta { max-width: 1320px; font-size: 108px; font-weight: 900; letter-spacing: -0.06em; line-height: 0.88; }
+      .meta { display: flex; gap: 18px; color: #f5f5f5; font-size: 27px; font-weight: 600; }
+      .meta span { padding-right: 18px; border-right: 1px solid #8c8c8c; }
+      .meta span:last-child { border-right: 0; }
+      .corner { position: absolute; right: 152px; bottom: 112px; width: 260px; height: 132px; border: 1px solid #dbdbdb; border-radius: 8px; }
+      .corner::before { content: "ByCuts"; position: absolute; inset: 22px; color: #ffd700; font-size: 32px; font-weight: 900; letter-spacing: -0.05em; }
+    </style>
+  </head>
+  <body>
+    <div id="root" data-composition-id="main" data-start="0" data-duration="5" data-width="1920" data-height="1080">
+      <section id="scene1" class="scene">
+        <div class="grain" data-layout-ignore></div>
+        <div class="scene-content">
+          <p id="s1-eyebrow" class="eyebrow">Cortes sem rosto</p>
+          <div id="s1-rule" class="rule"></div>
+          <h1 id="s1-title" class="headline">Fature em dólar.<br><em>Sem aparecer.</em></h1>
+          <p id="s1-copy" class="support">Seu canal de cortes pronto para alcançar uma audiência global.</p>
+        </div>
+      </section>
+      <section id="scene2" class="scene">
+        <div class="scene-two">
+          <div>
+            <p id="s2-eyebrow" class="eyebrow">O modelo</p>
+            <div id="s2-stat" class="stat">01</div>
+            <p id="s2-label" class="stat-label">aula para publicar seu primeiro corte</p>
+          </div>
+          <div id="s2-points" class="points">
+            <div class="point"><i class="dot"></i>Você não aparece</div>
+            <div class="point"><i class="dot"></i>Receita em dólar</div>
+            <div class="point"><i class="dot"></i>Vários canais, uma operação</div>
+          </div>
+        </div>
+      </section>
+      <section id="scene3" class="scene scene-three">
+        <div class="scene-content">
+          <div id="s3-top" class="topline"><span>ByCuts</span><span class="badge">Vagas limitadas</span></div>
+          <h2 id="s3-title" class="cta">Domine o ByCuts.<br>Publique o primeiro corte.</h2>
+          <div id="s3-meta" class="meta"><span>1 aula</span><span>100% online</span><span>Sem edição manual</span></div>
+        </div>
+        <div id="s3-corner" class="corner"></div>
+      </section>
+    </div>
+    <script>
+      window.__timelines = window.__timelines || {};
+      const tl = gsap.timeline({ paused: true });
+
+      tl.from("#s1-eyebrow", { x: -44, opacity: 0, duration: 0.48, ease: "expo.out" }, 0.18);
+      tl.from("#s1-rule", { scaleX: 0, transformOrigin: "left center", duration: 0.36, ease: "power3.out" }, 0.32);
+      tl.from("#s1-title", { y: 78, opacity: 0, duration: 0.72, ease: "power4.out" }, 0.42);
+      tl.from("#s1-copy", { y: 28, opacity: 0, duration: 0.48, ease: "sine.out" }, 0.78);
+      tl.from(".grain", { rotation: -18, scale: 0.88, opacity: 0, duration: 1.2, ease: "sine.inOut" }, 0.22);
+
+      tl.to("#scene2", { opacity: 1, filter: "blur(0px)", duration: 0.36, ease: "power2.inOut" }, 1.55);
+      tl.from("#s2-eyebrow", { x: -38, opacity: 0, duration: 0.38, ease: "expo.out" }, 1.7);
+      tl.from("#s2-stat", { y: 66, scale: 0.9, opacity: 0, duration: 0.58, ease: "back.out(1.4)" }, 1.78);
+      tl.from("#s2-label", { y: 22, opacity: 0, duration: 0.42, ease: "sine.out" }, 2.05);
+      tl.from("#s2-points .point", { x: 52, opacity: 0, duration: 0.42, stagger: 0.1, ease: "power3.out" }, 1.92);
+
+      tl.to("#scene2", { opacity: 0, filter: "blur(12px)", duration: 0.36, ease: "power2.inOut" }, 3.25);
+      tl.set("#scene2", { visibility: "hidden" }, 3.62);
+      tl.to("#scene3", { opacity: 1, filter: "blur(0px)", duration: 0.36, ease: "power2.inOut" }, 3.25);
+      tl.from("#s3-top", { y: -32, opacity: 0, duration: 0.38, ease: "expo.out" }, 3.42);
+      tl.from("#s3-title", { y: 82, opacity: 0, duration: 0.66, ease: "power4.out" }, 3.55);
+      tl.from("#s3-meta", { x: -36, opacity: 0, duration: 0.42, ease: "sine.out" }, 3.86);
+      tl.from("#s3-corner", { scale: 0.75, rotation: -8, opacity: 0, duration: 0.48, ease: "back.out(1.2)" }, 3.7);
+      tl.to("#scene3", { opacity: 0, duration: 0.32, ease: "power1.in" }, 4.68);
+      tl.set("#scene3", { visibility: "hidden" }, 5);
+
+      window.__timelines["main"] = tl;
+    </script>
+  </body>
+</html>

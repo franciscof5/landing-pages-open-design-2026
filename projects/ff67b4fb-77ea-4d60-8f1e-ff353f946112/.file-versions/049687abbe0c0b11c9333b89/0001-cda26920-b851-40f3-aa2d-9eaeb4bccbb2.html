@@ -1,0 +1,746 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem('bycuts-theme');
+        if (t !== 'light' && t !== 'dark') t = 'dark';
+        document.documentElement.setAttribute('data-theme', t);
+      } catch (e) {
+        document.documentElement.setAttribute('data-theme', 'dark');
+      }
+    })();
+  </script>
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-KJPHL688');</script>
+  <!-- End Google Tag Manager -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Verticalização de conteúdo para TV — 16:9 em cortes verticais | ByCuts</title>
+  <meta name="description" content="Transforme acervos históricos e programas de TV em Reels, TikTok e Shorts com reenquadramento inteligente, legendas dinâmicas e visão computacional, em escala." />
+  <style>
+    /* ─── typeface: Outfit (variable, latin) ────────────────────────── */
+    @font-face {
+      font-family: 'Outfit';
+      font-style: normal;
+      font-weight: 100 900;
+      font-display: swap;
+      src: url('../assets/outfit.woff2') format('woff2');
+    }
+
+    /* ─── tokens — ByCuts ──────────────────────────────────────────── */
+    :root {
+      --bg:      #ffffff;
+      --surface: #f5f5f5;
+      --fg:      #000000;
+      --muted:   #8c8c8c;
+      --border:  #dbdbdb;
+      --accent:  #ffd700;
+      --accent-secondary: #c8102e;
+
+      color-scheme: light;
+
+      --accent-soft: color-mix(in oklch, var(--accent) 18%, transparent);
+      --fg-soft:     color-mix(in oklch, var(--fg) 6%, transparent);
+      --eyebrow:     color-mix(in oklch, var(--accent-secondary) 82%, var(--fg));
+
+      --font-display: 'Outfit', system-ui, -apple-system, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+      --font-body:    'Outfit', system-ui, -apple-system, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+      --font-mono:    ui-monospace, 'JetBrains Mono', 'SF Mono', Menlo, monospace;
+
+      --fs-h1: clamp(40px, 5.4vw, 66px);
+      --fs-h2: clamp(30px, 3.6vw, 44px);
+      --fs-h3: 21px;
+      --fs-lead: 19px;
+      --fs-body: 16px;
+      --fs-meta: 13px;
+
+      --gap-xs: 8px;
+      --gap-sm: 12px;
+      --gap-md: 20px;
+      --gap-lg: 32px;
+      --gap-xl: 56px;
+      --gap-2xl: 96px;
+      --container: 1120px;
+      --gutter: 32px;
+
+      --radius: 8px;
+      --radius-lg: 8px;
+    }
+
+    /* ─── tokens do tema escuro ────────────────────────────────────── */
+    :root[data-theme="dark"] {
+      color-scheme: dark;
+      --bg:      #000000;
+      --surface: color-mix(in oklch, #ffffff 7%, #000000);
+      --fg:      #ffffff;
+      --border:  color-mix(in oklch, #ffffff 16%, #000000);
+    }
+
+    /* ─── reset & base ─────────────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; }
+    html { -webkit-text-size-adjust: 100%; background: var(--bg); }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--fg);
+      transition: background-color 0.2s ease, color 0.2s ease;
+      font-family: var(--font-body);
+      font-size: var(--fs-body);
+      line-height: 1.55;
+      text-rendering: optimizeLegibility;
+      -webkit-font-smoothing: antialiased;
+    }
+    img, svg { display: block; max-width: 100%; }
+    a { color: inherit; text-decoration: none; }
+    button { font: inherit; cursor: pointer; }
+    p { text-wrap: pretty; }
+    h1, h2, h3, h4 { text-wrap: balance; }
+    :focus-visible { outline: 2px solid var(--accent-secondary); outline-offset: 2px; }
+    section[id] { scroll-margin-top: 88px; }
+
+    /* ─── layout primitives ────────────────────────────────────────── */
+    .container { max-width: var(--container); margin-inline: auto; padding-inline: var(--gutter); }
+    .section { padding-block: clamp(52px, 8vw, var(--gap-2xl)); }
+    .section + .section { border-top: 1px solid var(--border); }
+    .stack { display: flex; flex-direction: column; }
+    .stack > * + * { margin-top: var(--gap-md); }
+    .row { display: flex; align-items: center; gap: var(--gap-md); }
+    .row-between { display: flex; align-items: center; justify-content: space-between; gap: var(--gap-md); }
+    .grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--gap-lg); }
+    .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--gap-lg); }
+    .grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--gap-md); }
+    .grid-2-1 { display: grid; grid-template-columns: 2fr 1fr; gap: var(--gap-xl); align-items: start; }
+    .grid-1-2 { display: grid; grid-template-columns: 1.05fr 0.95fr; gap: var(--gap-xl); align-items: center; }
+    @media (max-width: 920px) {
+      .grid-2, .grid-3, .grid-4, .grid-2-1, .grid-1-2 { grid-template-columns: 1fr; }
+    }
+
+    /* ─── type ─────────────────────────────────────────────────────── */
+    .h1, h1 { font-family: var(--font-display); font-size: var(--fs-h1); line-height: 1.04; letter-spacing: -0.025em; font-weight: 700; margin: 0; }
+    .h2, h2 { font-family: var(--font-display); font-size: var(--fs-h2); line-height: 1.08; letter-spacing: -0.02em; font-weight: 700; margin: 0; }
+    .h3, h3 { font-family: var(--font-display); font-size: var(--fs-h3); font-weight: 600; line-height: 1.25; letter-spacing: -0.01em; margin: 0; }
+    .lead { font-size: var(--fs-lead); line-height: 1.55; color: var(--fg); max-width: 60ch; margin: 0; }
+    .eyebrow {
+      font-family: var(--font-mono);
+      font-size: 12px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--eyebrow);
+      margin: 0 0 var(--gap-md);
+      font-weight: 600;
+    }
+    .meta { font-family: var(--font-mono); font-size: var(--fs-meta); color: var(--muted); }
+    .caption { font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.02em; color: var(--muted); margin: 12px 0 0; }
+    .num { font-family: var(--font-mono); font-variant-numeric: tabular-nums; }
+
+    /* ─── chrome: nav + footer ─────────────────────────────────────── */
+    .topnav {
+      position: sticky; top: 0; z-index: 10;
+      background: color-mix(in oklch, var(--bg) 88%, transparent);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+    .topnav-inner { display: flex; align-items: center; justify-content: space-between; gap: var(--gap-md); padding-block: 14px; }
+    .topnav .logo { font-family: var(--font-display); font-size: 20px; font-weight: 700; letter-spacing: -0.02em; }
+    .topnav .logo span { color: var(--fg); }
+    .topnav nav { display: flex; gap: var(--gap-lg); }
+    .topnav nav a { font-size: 14px; color: var(--fg); }
+    .topnav nav a:hover { color: var(--accent-secondary); }
+    @media (max-width: 720px) { .topnav nav { display: none; } }
+    .pagefoot { padding-block: var(--gap-xl); background: var(--fg); color: var(--bg); font-size: 13px; }
+    .pagefoot a { color: var(--bg); text-decoration: underline; text-underline-offset: 3px; }
+    .pagefoot .row-between { flex-wrap: wrap; gap: var(--gap-md); }
+    .pagefoot .logo span { color: var(--accent); }
+    .pagefoot .attrib { margin-top: var(--gap-xl); padding-top: var(--gap-md); border-top: 1px solid color-mix(in oklch, var(--bg) 24%, transparent); opacity: 0.78; max-width: 78ch; line-height: 1.6; }
+
+    /* ─── buttons ──────────────────────────────────────────────────── */
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+      padding: 13px 22px;
+      min-height: 46px;
+      border-radius: var(--radius);
+      border: 1px solid transparent;
+      font-size: 15px;
+      font-weight: 600;
+      letter-spacing: -0.005em;
+      transition: background 0.15s ease, border-color 0.15s ease, color 0.15s ease, transform 0.06s ease;
+    }
+    .btn:active { transform: translateY(1px); }
+    .btn-primary { background: var(--accent); color: var(--fg); border-color: var(--accent); }
+    .btn-primary:hover { background: color-mix(in oklch, var(--accent) 84%, var(--fg)); border-color: color-mix(in oklch, var(--accent) 64%, var(--fg)); }
+    .btn-secondary { background: transparent; color: var(--fg); border-color: var(--border); }
+    .btn-secondary:hover { border-color: var(--fg); }
+    .btn-ghost { background: transparent; color: var(--fg); border-color: transparent; padding-inline: 6px; }
+    .btn-ghost:hover { color: var(--accent-secondary); }
+    .btn-arrow::after { content: '\2192'; transition: transform 0.15s ease; }
+    .btn-arrow:hover::after { transform: translateX(3px); }
+
+    /* ─── card / surface ───────────────────────────────────────────── */
+    .card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 28px; }
+    .card-flat { background: transparent; border: 0; padding: 0; }
+
+    /* ─── feature cell ─────────────────────────────────────────────── */
+    .feature .feature-mark {
+      width: 40px; height: 40px;
+      display: grid; place-items: center;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      color: var(--fg);
+      margin-bottom: var(--gap-md);
+      background: var(--bg);
+    }
+    .feature .feature-mark svg { width: 19px; height: 19px; }
+    .feature h3 { margin-bottom: 8px; }
+    .feature p { margin: 0; color: var(--muted); font-size: 15px; max-width: 40ch; }
+
+    /* ─── step ─────────────────────────────────────────────────────── */
+    .step { display: grid; grid-template-columns: 64px 1fr; gap: var(--gap-md); padding: 24px 0; border-top: 1px solid var(--border); }
+    .step:first-child { border-top: 0; padding-top: 0; }
+    .step-num { font-family: var(--font-display); font-size: 44px; line-height: 1; font-weight: 700; color: var(--muted); }
+    .step h3 { margin-bottom: 6px; }
+    .step p { margin: 0; font-size: 15px; color: var(--muted); max-width: 46ch; }
+
+    /* ─── transform (hero visual: 16:9 → 9:16) ────────────────────── */
+    .transform { display: flex; align-items: center; gap: var(--gap-md); }
+    .frame { position: relative; border-radius: var(--radius); border: 1px solid var(--border); overflow: hidden; background: var(--surface); flex: none; }
+    .frame img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .frame-wide { width: 52%; aspect-ratio: 16 / 10; }
+    .frame-tall { width: 34%; aspect-ratio: 9 / 16; }
+    .frame-tag {
+      position: absolute; top: 10px; left: 10px;
+      font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase;
+      background: color-mix(in oklch, var(--bg) 88%, transparent);
+      backdrop-filter: blur(8px);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 5px 9px;
+    }
+    .detect-box { position: absolute; top: 20%; left: 26%; width: 48%; height: 56%; border: 2px solid var(--accent); border-radius: 6px; }
+    .detect-box::before { content: 'sujeito em cena'; position: absolute; top: -22px; left: -2px; font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--fg); }
+    .caption-chip {
+      position: absolute; left: 10px; right: 10px; bottom: 10px;
+      background: color-mix(in oklch, var(--bg) 86%, transparent);
+      backdrop-filter: blur(8px);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 7px 10px;
+      font-size: 12px; font-weight: 600; text-align: center;
+      box-shadow: 0 10px 24px -14px color-mix(in oklch, var(--fg) 50%, transparent);
+    }
+    .transform-arrow {
+      flex: 1; display: grid; place-items: center; flex: none;
+      width: 40px; height: 40px;
+      border: 1px solid var(--border); border-radius: var(--radius);
+      color: var(--fg); font-size: 20px;
+      background: var(--bg);
+    }
+    @media (max-width: 920px) {
+      .transform { flex-wrap: wrap; justify-content: center; }
+      .frame-wide { width: 100%; }
+      .frame-tall { width: min(46%, 240px); }
+      .transform-arrow { transform: rotate(90deg); }
+    }
+
+    /* ─── wordmark wall (canais) ───────────────────────────────────── */
+    .logo-wall { display: flex; flex-wrap: wrap; gap: 16px 34px; align-items: center; justify-content: center; margin-top: 40px; }
+    .logo-wall .wm { font-family: var(--font-display); font-weight: 700; font-size: 22px; letter-spacing: -0.01em; color: var(--muted); white-space: nowrap; }
+    .logo-wall .wm:hover { color: var(--fg); }
+
+    /* ─── pricing tiers (sem tabela) ───────────────────────────────── */
+    .tiers { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--gap-lg); align-items: stretch; }
+    @media (max-width: 920px) { .tiers { grid-template-columns: 1fr; } }
+    .tier { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 30px; display: flex; flex-direction: column; }
+    .tier.hot { border-color: var(--accent); }
+    .tier-head { display: flex; align-items: center; justify-content: space-between; gap: var(--gap-sm); margin-bottom: 20px; }
+    .tier-name { font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--fg); font-weight: 600; }
+    .tier-pill { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; background: var(--accent-soft); color: var(--fg); border-radius: 999px; padding: 3px 9px; }
+    .tier-price { font-family: var(--font-display); font-size: 34px; font-weight: 700; line-height: 1; letter-spacing: -0.02em; }
+    .tier-price .per { font-family: var(--font-mono); font-size: 13px; font-weight: 500; letter-spacing: 0; color: var(--muted); margin-left: 4px; }
+    .tier-total { font-family: var(--font-mono); font-size: 13px; color: var(--muted); margin-top: 8px; }
+    .tier p.desc { margin: 16px 0 0; font-size: 15px; color: var(--muted); }
+    .tier ul { list-style: none; padding: 0; margin: 20px 0 0; display: grid; gap: 10px; border-top: 1px solid var(--border); padding-top: 20px; }
+    .tier ul li { display: grid; grid-template-columns: 18px 1fr; gap: 10px; align-items: start; font-size: 14px; }
+    .tier ul li .tick { color: var(--fg); font-weight: 700; font-family: var(--font-mono); }
+    .tier .btn { margin-top: 24px; }
+
+    /* ─── value cards (argumentos de venda) ────────────────────────── */
+    .value-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 28px; }
+    .value-card .v-num { font-family: var(--font-display); font-size: clamp(36px, 4vw, 52px); font-weight: 700; line-height: 1; letter-spacing: -0.02em; color: var(--fg); }
+    .value-card .v-unit { font-family: var(--font-mono); font-size: 14px; color: var(--muted); }
+    .value-card h3 { margin: 16px 0 8px; }
+    .value-card p { margin: 0; font-size: 15px; color: var(--muted); }
+
+    /* ─── FAQ ──────────────────────────────────────────────────────── */
+    .faq { border-top: 1px solid var(--border); }
+    details.faq-item { border-bottom: 1px solid var(--border); }
+    details.faq-item summary {
+      list-style: none; cursor: pointer;
+      display: flex; align-items: center; justify-content: space-between; gap: var(--gap-md);
+      padding: 22px 0; font-size: 17px; font-weight: 600; font-family: var(--font-display);
+    }
+    details.faq-item summary::-webkit-details-marker { display: none; }
+    details.faq-item summary .plus { font-family: var(--font-mono); transition: transform 0.2s ease; flex: none; }
+    details.faq-item[open] summary .plus { transform: rotate(45deg); }
+    details.faq-item .faq-answer { padding: 0 0 22px; max-width: 68ch; font-size: 15px; color: var(--muted); }
+    details.faq-item summary:hover { color: var(--accent-secondary); }
+
+    /* ─── orçamento form ───────────────────────────────────────────── */
+    .form-card { background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 32px; }
+    .grid-form { display: grid; grid-template-columns: 1fr 1fr; gap: var(--gap-md); }
+    @media (max-width: 720px) { .grid-form { grid-template-columns: 1fr; } }
+    .field { display: flex; flex-direction: column; gap: 7px; }
+    .field label { font-size: 13px; font-weight: 600; color: var(--fg); }
+    .input, .select {
+      width: 100%; padding: 13px 14px; min-height: 46px;
+      border: 1px solid var(--border); border-radius: var(--radius);
+      background: var(--bg); color: var(--fg); font: inherit; font-size: 15px;
+    }
+    .select { appearance: none; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%238c8c8c' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 14px center; padding-right: 40px; }
+    .input:focus, .select:focus { outline: 2px solid var(--accent-soft); border-color: var(--accent-secondary); }
+    .input[aria-invalid="true"], .select[aria-invalid="true"] { border-color: var(--accent-secondary); }
+    .form-note { font-size: 13px; margin: 14px 0 0; max-width: 62ch; color: var(--muted); }
+    .success { display: none; }
+    .success[data-visible="true"] { display: block; }
+    form[data-submitted="true"] .form-fields { display: none; }
+    .success .check { width: 44px; height: 44px; border: 2px solid var(--accent); border-radius: var(--radius); display: grid; place-items: center; margin-bottom: var(--gap-md); font-size: 22px; }
+
+    /* ─── seletor de tema ──────────────────────────────────────────── */
+    .topnav-actions { display: flex; align-items: center; gap: 10px; }
+    .theme-toggle {
+      width: 44px; height: 44px; flex: none;
+      display: grid; place-items: center;
+      background: transparent; color: var(--fg);
+      border: 1px solid var(--border); border-radius: var(--radius);
+      transition: background 0.15s ease, border-color 0.15s ease;
+    }
+    .theme-toggle:hover { background: var(--surface); border-color: var(--fg); }
+    .theme-toggle:active { transform: translateY(1px); }
+    .theme-toggle svg { width: 18px; height: 18px; }
+    .theme-toggle .icon-sun { display: none; }
+    [data-theme="dark"] .theme-toggle .icon-sun { display: block; }
+    [data-theme="dark"] .theme-toggle .icon-moon { display: none; }
+
+    /* ─── faixa de CTA: contraste adaptável ao tema ────────────────── */
+    .cta-band { background: var(--fg); color: var(--bg); }
+    .cta-band h2, .cta-band .lead { color: var(--bg); }
+    .cta-note { font-size: 13px; margin: var(--gap-md) auto 0; max-width: 66ch; text-align: center; line-height: 1.6; opacity: 0.8; }
+
+    /* ─── ajustes do tema escuro ───────────────────────────────────── */
+    [data-theme="dark"] .btn-primary { color: var(--bg); }
+    [data-theme="dark"] .pagefoot { background: var(--surface); color: var(--fg); border-top: 1px solid var(--border); }
+    [data-theme="dark"] .pagefoot a { color: var(--fg); }
+    [data-theme="dark"] .pagefoot .attrib { border-top-color: var(--border); opacity: 0.72; }
+    [data-theme="dark"] .cta-band { background: var(--surface); color: var(--fg); }
+    [data-theme="dark"] .cta-band h2, [data-theme="dark"] .cta-band .lead { color: var(--fg); }
+  </style>
+</head>
+<body>
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KJPHL688"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+  <header class="topnav" data-od-id="topnav">
+    <div class="container topnav-inner">
+      <a class="logo" href="#topo" data-scroll>By<span>Cuts</span></a>
+      <nav>
+        <a href="#como" data-scroll>Como funciona</a>
+        <a href="#precos" data-scroll>Preços</a>
+        <a href="#valor" data-scroll>Por que adaptar</a>
+        <a href="#duvidas" data-scroll>Dúvidas</a>
+      </nav>
+      <div class="topnav-actions">
+        <button class="theme-toggle" type="button" data-od-id="seletor-tema" aria-label="Ativar modo claro" aria-pressed="true">
+          <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2v2.2M12 19.8V22M4.2 4.2l1.6 1.6M18.2 18.2l1.6 1.6M2 12h2.2M19.8 12H22M4.2 19.8l1.6-1.6M18.2 5.8l1.6-1.6"/></svg>
+          <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.5 14.5A8.5 8.5 0 0 1 9.5 3.5a8.5 8.5 0 1 0 11 11z"/></svg>
+        </button>
+        <a class="btn btn-secondary" href="#cta" data-scroll>Pedir orçamento</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="content">
+    <!-- ─── Hero ─────────────────────────────────────────────────── -->
+    <section class="section hero" id="topo" data-od-id="hero">
+      <div class="container grid-1-2">
+        <div>
+          <p class="eyebrow">Verticalização de conteúdo · TV &amp; Produtoras</p>
+          <h1>Transforme seu acervo 16:9 em cortes verticais que viralizam</h1>
+          <p class="lead" style="margin-top: 20px;">Acervos históricos e programas novos viram Reels, TikTok e Shorts em escala. Visão computacional identifica as pessoas, reenquadra para 9:16 e insere legendas dinâmicas — minuto a minuto, sem edição manual.</p>
+          <div class="hero-cta" style="display: flex; gap: var(--gap-sm); flex-wrap: wrap; margin-top: 28px;">
+            <a class="btn btn-primary" href="#cta" data-scroll>Pedir orçamento</a>
+            <a class="btn btn-ghost btn-arrow" href="#precos" data-scroll>Ver preços</a>
+          </div>
+          <p class="meta" style="margin-top: var(--gap-md); font-size: 12px;">Cobrança por minuto de vídeo · reenquadramento + legendas inclusos</p>
+        </div>
+
+        <div class="transform" aria-label="Demonstração: um frame 16:9 é reenquadrado para 9:16 com a pessoa mantida em cena e legenda inserida.">
+          <figure class="frame frame-wide">
+            <img src="../assets/img-0.jpeg" width="1280" height="960" alt="Cena original de estúdio em 16:9 antes do reenquadramento." />
+            <span class="frame-tag">16:9 · original</span>
+            <span class="detect-box" aria-hidden="true"></span>
+          </figure>
+          <span class="transform-arrow" aria-hidden="true">&rarr;</span>
+          <figure class="frame frame-tall">
+            <img src="../assets/img-0.jpeg" width="1280" height="960" alt="A mesma cena reenquadrada para vertical 9:16 com o sujeito em foco." />
+            <span class="frame-tag">9:16 · vertical</span>
+            <span class="caption-chip">corte vertical + legenda automática</span>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── Canais / wall ────────────────────────────────────────── -->
+    <section class="section" id="canais" data-od-id="canais">
+      <div class="container" style="text-align: center;">
+        <p class="eyebrow">Para emissoras e produtoras</p>
+        <h2 style="max-width: 30ch; margin-inline: auto;">Catálogos que já nascem no formato vertical</h2>
+        <p class="lead" style="margin: 18px auto 0; max-width: 58ch;">Nosso serviço adapta acervos e programas de canais como os abaixo — cada minuto de TV vira dezenas de cortes prontos para as redes.</p>
+        <div class="logo-wall">
+          <span class="wm">Globo</span>
+          <span class="wm">Record</span>
+          <span class="wm">Band</span>
+          <span class="wm">SBT</span>
+          <span class="wm">RedeTV!</span>
+          <span class="wm">MTV</span>
+          <span class="wm">CNN</span>
+          <span class="wm">Jovem Pan</span>
+        </div>
+        <p class="caption" style="text-align: center;">Nomes citados como exemplos de canais e produtoras — logomarcas oficiais não são exibidas.</p>
+      </div>
+    </section>
+
+    <!-- ─── Features ─────────────────────────────────────────────── -->
+    <section class="section" id="recursos" data-od-id="recursos" style="background: var(--surface);">
+      <div class="container stack" style="gap: 56px;">
+        <div style="max-width: 44ch;">
+          <p class="eyebrow">O que a tecnologia faz</p>
+          <h2>Do arquivo horizontal ao corte vertical, sem tocar em um editor</h2>
+        </div>
+        <div class="grid-3">
+          <div class="feature card-flat" data-od-id="feature-reenquadramento">
+            <div class="feature-mark" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 3v18M3 12h6"/></svg>
+            </div>
+            <h3>Reenquadramento inteligente</h3>
+            <p>Visão computacional detecta as pessoas em cena e mantém o foco no reenquadramento 9:16, acompanhando o sujeito corte a corte.</p>
+          </div>
+          <div class="feature card-flat" data-od-id="feature-escala">
+            <div class="feature-mark" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v18M3 12h18"/><circle cx="12" cy="12" r="2.5"/></svg>
+            </div>
+            <h3>Escala de minutos, não de projetos</h3>
+            <p>Automatizamos a adaptação do seu arquivo 16:9 em grande escala, hora a hora, para atualizar o catálogo inteiro de uma vez.</p>
+          </div>
+          <div class="feature card-flat" data-od-id="feature-legendas">
+            <div class="feature-mark" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h16v12H10l-4 3v-3H4z"/><path d="M8 10h8M8 13h5"/></svg>
+            </div>
+            <h3>Legendas dinâmicas prontas</h3>
+            <p>Inserção automática de legendas no padrão de cada rede, otimizadas para reter a atenção nos primeiros segundos do corte.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── Como funciona ────────────────────────────────────────── -->
+    <section class="section" id="como" data-od-id="como">
+      <div class="container grid-2">
+        <div>
+          <p class="eyebrow">Como funciona</p>
+          <h2>Três passos do arquivo ao catálogo vertical</h2>
+          <div style="margin-top: 40px;">
+            <div class="step" data-od-id="passo-enviar">
+              <div class="step-num num">01</div>
+              <div>
+                <h3>Envie seu acervo</h3>
+                <p>Episódios, programas ou o catálogo completo em 16:9 — de qualquer época ou resolução.</p>
+              </div>
+            </div>
+            <div class="step" data-od-id="passo-detecta">
+              <div class="step-num num">02</div>
+              <div>
+                <h3>Detectamos e reenquadramos</h3>
+                <p>A visão computacional acompanha os sujeitos em cena e monta o corte vertical com legendas.</p>
+              </div>
+            </div>
+            <div class="step" data-od-id="passo-publica">
+              <div class="step-num num">03</div>
+              <div>
+                <h3>Receba pronto para publicar</h3>
+                <p>Arquivos 9:16 legendados, organizados por programa e prontos para Reels, TikTok e Shorts.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card" style="align-self: start;">
+          <div class="meta" style="margin-bottom: 14px;">O que o acervo vira</div>
+          <h3 style="margin-bottom: 12px;">De 1 hora de TV a dezenas de cortes</h3>
+          <p style="margin: 0 0 20px; font-size: 15px; color: var(--muted); max-width: 42ch;">Cada hora de programa é segmentada em clipes verticais com o sujeito em foco, legenda dinâmica e o formato certo para cada rede.</p>
+          <div class="row-between" style="border-top: 1px solid var(--border); padding-top: 18px;">
+            <span class="meta">Formatos</span>
+            <span style="font-family: var(--font-display); font-weight: 600;">Reels · TikTok · Shorts</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── Preços ───────────────────────────────────────────────── -->
+    <section class="section" id="precos" data-od-id="precos" style="background: var(--surface);">
+      <div class="container">
+        <div style="text-align: center; max-width: 40ch; margin: 0 auto 56px;">
+          <p class="eyebrow">Preços</p>
+          <h2>Três faixas, cobradas por minuto de vídeo</h2>
+        </div>
+        <div class="tiers">
+          <article class="tier" data-od-id="faixa-pontual">
+            <div class="tier-head">
+              <span class="tier-name">Faixa Pontual</span>
+            </div>
+            <div class="tier-price">R$10<span class="per">/ minuto</span></div>
+            <div class="tier-total">até 10h · 600 min · R$6.000 no total</div>
+            <p class="desc">Para testes de formato, pilotos de programa e cortes isolados.</p>
+            <ul>
+              <li><span class="tick">+</span><span>Reenquadramento 9:16 automático</span></li>
+              <li><span class="tick">+</span><span>Legendas dinâmicas inclusas</span></li>
+              <li><span class="tick">+</span><span>Entrega em Reels, TikTok e Shorts</span></li>
+            </ul>
+            <a class="btn btn-secondary" href="#cta" data-scroll>Pedir orçamento</a>
+          </article>
+
+          <article class="tier hot" data-od-id="faixa-medio">
+            <div class="tier-head">
+              <span class="tier-name">Pacote Médio</span>
+              <span class="tier-pill">Mais procurado</span>
+            </div>
+            <div class="tier-price">R$5<span class="per">/ minuto</span></div>
+            <div class="tier-total">50h · 3.000 min · R$300/hora · R$15.000 no total</div>
+            <p class="desc">Para temporadas fechadas, quadros específicos e acervos regionais.</p>
+            <ul>
+              <li><span class="tick">+</span><span>Tudo da faixa pontual</span></li>
+              <li><span class="tick">+</span><span>Processamento por lote de temporada</span></li>
+              <li><span class="tick">+</span><span>Acompanhamento de sujeitos em cena</span></li>
+            </ul>
+            <a class="btn btn-primary" href="#cta" data-scroll>Pedir orçamento</a>
+          </article>
+
+          <article class="tier" data-od-id="faixa-escala">
+            <div class="tier-head">
+              <span class="tier-name">Grande Escala</span>
+            </div>
+            <div class="tier-price">R$2–3<span class="per">/ minuto</span></div>
+            <div class="tier-total">200h+ · 12.000 min+ · R$120–180/hora · R$24.000–36.000 por 200h</div>
+            <p class="desc">Para grades completas de canais de TV e grandes produtoras.</p>
+            <ul>
+              <li><span class="tick">+</span><span>Tudo do pacote médio</span></li>
+              <li><span class="tick">+</span><span>Prioridade no pipeline de processamento</span></li>
+              <li><span class="tick">+</span><span>Suporte dedicado e entrega contínua</span></li>
+            </ul>
+            <a class="btn btn-secondary" href="#cta" data-scroll>Pedir orçamento</a>
+          </article>
+        </div>
+        <p class="caption" style="text-align: center; margin-top: 32px;">Valores por minuto de vídeo processado. Fale com a gente para um orçamento exato do seu catálogo.</p>
+      </div>
+    </section>
+
+    <!-- ─── Por que adaptar (argumentos) ─────────────────────────── -->
+    <section class="section" id="valor" data-od-id="valor">
+      <div class="container stack" style="gap: 56px;">
+        <div style="max-width: 44ch;">
+          <p class="eyebrow">Por que adaptar conosco</p>
+          <h2>Venda por hora, não por contrato — e sem equipe extra</h2>
+        </div>
+        <div class="grid-3">
+          <div class="value-card" data-od-id="valor-hora">
+            <div class="v-num">R$300</div>
+            <div class="v-unit">por hora de programa</div>
+            <h3>Uma hora de TV vira dezenas de cortes</h3>
+            <p>Falar em R$300 para adaptar uma hora inteira de televisão em Reels e TikToks é muito mais simples de aprovar do que um valor global de contrato.</p>
+          </div>
+          <div class="value-card" data-od-id="valor-equipe">
+            <div class="v-num">2–3h</div>
+            <div class="v-unit">de editor por hora de acervo</div>
+            <h3>Sem depender de edição manual</h3>
+            <p>Converter 1 hora manualmente exige de 2 a 3 horas de um editor humano. O serviço automatizado entrega o mesmo volume por uma fração desse custo.</p>
+          </div>
+          <div class="value-card" data-od-id="valor-catalogo">
+            <div class="v-num">9:16</div>
+            <div class="v-unit">pronto para publicar</div>
+            <h3>Catálogo sempre atualizado</h3>
+            <p>Atualize o acervo inteiro de uma vez e mantenha presença constante nas redes, com corte e legenda no padrão de cada plataforma.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── FAQ ──────────────────────────────────────────────────── -->
+    <section class="section" id="duvidas" data-od-id="faq">
+      <div class="container grid-1-2" style="align-items: start;">
+        <div>
+          <p class="eyebrow">Dúvidas frequentes</p>
+          <h2>O que você precisa saber antes de orçar</h2>
+        </div>
+        <div class="faq">
+          <details class="faq-item" open>
+            <summary>Quais formatos vocês recebem? <span class="plus" aria-hidden="true">+</span></summary>
+            <div class="faq-answer">Recebemos vídeos 16:9 em qualquer resolução, de acervos antigos a programas recém-gravados. A entrega é sempre em 9:16, pronta para Reels, TikTok e Shorts.</div>
+          </details>
+          <details class="faq-item">
+            <summary>O reenquadramento acompanha as pessoas? <span class="plus" aria-hidden="true">+</span></summary>
+            <div class="faq-answer">Sim. A visão computacional identifica e acompanha os sujeitos em cena, mantendo o foco no corte vertical mesmo quando as pessoas se movem ou trocam de posição.</div>
+          </details>
+          <details class="faq-item">
+            <summary>As legendas estão inclusas? <span class="plus" aria-hidden="true">+</span></summary>
+            <div class="faq-answer">Sim. As legendas dinâmicas fazem parte do processamento, no padrão adequado a cada rede, otimizadas para os primeiros segundos de atenção.</div>
+          </details>
+          <details class="faq-item">
+            <summary>Qual o prazo de entrega? <span class="plus" aria-hidden="true">+</span></summary>
+            <div class="faq-answer">O prazo depende do tamanho do lote. Como o processo é automatizado em escala, um catálogo inteiro é entregue em uma fração do tempo que levaria uma edição manual.</div>
+          </details>
+          <details class="faq-item">
+            <summary>Como funciona o pagamento? <span class="plus" aria-hidden="true">+</span></summary>
+            <div class="faq-answer">Cobramos por minuto de vídeo processado, conforme a faixa do seu volume. Ao preencher o formulário, você recebe um orçamento detalhado do seu catálogo.</div>
+          </details>
+          <details class="faq-item">
+            <summary>Preciso ter a ByCuts para usar o serviço? <span class="plus" aria-hidden="true">+</span></summary>
+            <div class="faq-answer">Não necessariamente. Este serviço é gerenciado: você envia o material e recebe os cortes prontos. Para quem quer operar internamente, também configuramos o fluxo na ByCuts.</div>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── CTA + orçamento ──────────────────────────────────────── -->
+    <section class="section cta-band" id="cta" data-od-id="cta-orcamento">
+      <div class="container" style="max-width: 760px;">
+        <div style="text-align: center; margin-bottom: 12px;">
+          <h2>Peça um orçamento do seu catálogo</h2>
+          <p class="lead" style="margin: 18px auto 0; max-width: 52ch;">Conte o volume do seu acervo e receba o valor por minuto para transformar tudo em cortes verticais.</p>
+        </div>
+
+        <div class="form-card" style="margin-top: 36px;">
+          <form id="orcamento" novalidate>
+            <div class="form-fields">
+              <div class="grid-form">
+                <div class="field">
+                  <label for="nome">Seu nome</label>
+                  <input class="input" id="nome" name="nome" type="text" autocomplete="name" placeholder="Como podemos te chamar" required />
+                </div>
+                <div class="field">
+                  <label for="email">Seu melhor e-mail</label>
+                  <input class="input" id="email" name="email" type="email" autocomplete="email" placeholder="voce@emissora.com" required />
+                </div>
+                <div class="field">
+                  <label for="empresa">Empresa / canal</label>
+                  <input class="input" id="empresa" name="empresa" type="text" autocomplete="organization" placeholder="Nome da emissora ou produtora" />
+                </div>
+                <div class="field">
+                  <label for="volume">Volume aproximado</label>
+                  <select class="select" id="volume" name="volume" required>
+                    <option value="" selected disabled>Escolha uma faixa</option>
+                    <option value="pontual">Faixa Pontual — até 10h</option>
+                    <option value="medio">Pacote Médio — 50h</option>
+                    <option value="escala">Grande Escala — 200h+</option>
+                    <option value="nao-sei">Ainda não sei</option>
+                  </select>
+                </div>
+              </div>
+              <button class="btn btn-primary" type="submit" style="width: 100%; margin-top: var(--gap-md);">Pedir orçamento</button>
+              <p class="form-note">Ao enviar, você recebe um orçamento detalhado por minuto de vídeo, conforme a faixa selecionada.</p>
+            </div>
+
+            <div class="success" id="orcamento-success" role="status" aria-live="polite" data-visible="false">
+              <div class="check" aria-hidden="true">&#10003;</div>
+              <h3>Solicitação enviada</h3>
+              <p style="margin: 8px 0 0; max-width: 50ch;">Recebemos seus dados. Em breve você recebe o orçamento do seu catálogo no e-mail informado.</p>
+            </div>
+          </form>
+        </div>
+
+        <p class="cta-note">Os prazos e valores finais dependem do volume e das características do acervo. Resultados de engajamento variam conforme o conteúdo e as políticas das plataformas.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="pagefoot" data-od-id="footer">
+    <div class="container">
+      <div class="row-between">
+        <span class="logo" style="font-family: var(--font-display); font-size: 20px; font-weight: 700;">By<span>Cuts</span></span>
+        <span>Verticalização de conteúdo · <a href="https://bycuts.com" target="_blank" rel="noopener">bycuts.com</a></span>
+        <span>&copy; 2026 ByCuts. Todos os direitos reservados.</span>
+      </div>
+      <p class="attrib">Imagem de estúdio por Myotus (CC BY 4.0), via Wikimedia Commons. Nomes de canais citados apenas como exemplos; as logomarcas oficiais pertencem às respectivas empresas e não são exibidas. Não afiliado a qualquer emissora.</p>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+      document.querySelectorAll('[data-scroll]').forEach(function (link) {
+        link.addEventListener('click', function (e) {
+          var id = link.getAttribute('href');
+          if (!id || id.charAt(0) !== '#') return;
+          var target = document.querySelector(id);
+          if (!target) return;
+          e.preventDefault();
+          var top = target.getBoundingClientRect().top + window.pageYOffset - 84;
+          window.scrollTo({ top: top, behavior: reduce ? 'auto' : 'smooth' });
+          if (history.replaceState) history.replaceState(null, '', id);
+        });
+      });
+
+      var root = document.documentElement;
+      var themeToggle = document.querySelector('.theme-toggle');
+      if (themeToggle) {
+        var syncTheme = function () {
+          var dark = root.getAttribute('data-theme') !== 'light';
+          themeToggle.setAttribute('aria-pressed', dark ? 'true' : 'false');
+          themeToggle.setAttribute('aria-label', dark ? 'Ativar modo claro' : 'Ativar modo escuro');
+        };
+        syncTheme();
+        themeToggle.addEventListener('click', function () {
+          var next = root.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
+          root.setAttribute('data-theme', next);
+          try { localStorage.setItem('bycuts-theme', next); } catch (err) {}
+          syncTheme();
+        });
+      }
+
+      var form = document.getElementById('orcamento');
+      if (!form) return;
+      var success = document.getElementById('orcamento-success');
+      var nome = document.getElementById('nome');
+      var email = document.getElementById('email');
+      var volume = document.getElementById('volume');
+
+      function validEmail(v) { return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v); }
+
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        var ok = true;
+        if (!nome.value.trim()) { nome.setAttribute('aria-invalid', 'true'); ok = false; } else { nome.removeAttribute('aria-invalid'); }
+        if (!validEmail(email.value.trim())) { email.setAttribute('aria-invalid', 'true'); ok = false; } else { email.removeAttribute('aria-invalid'); }
+        if (!volume.value) { volume.setAttribute('aria-invalid', 'true'); ok = false; } else { volume.removeAttribute('aria-invalid'); }
+        if (!ok) {
+          var firstInvalid = [nome, email, volume].filter(function (el) { return el.getAttribute('aria-invalid') === 'true'; })[0];
+          if (firstInvalid) firstInvalid.focus();
+          return;
+        }
+        form.setAttribute('data-submitted', 'true');
+        success.setAttribute('data-visible', 'true');
+      });
+
+      [nome, email, volume].forEach(function (input) {
+        input.addEventListener('input', function () { input.removeAttribute('aria-invalid'); });
+        input.addEventListener('change', function () { input.removeAttribute('aria-invalid'); });
+      });
+    })();
+  </script>
+</body>
+</html>

@@ -1,0 +1,167 @@
+{
+  "name": "ByCuts — Editor de Cortes com IA para Podcasts",
+  "tagline": "Cresça Sua Audiência de Forma Espetacular",
+  "description": "A ByCuts transforma seus podcasts longos em cortes e shorts virais gerados por IA — horizontais, verticais, com legendas e prontos para publicar.",
+  "sourceUrl": "https://bycuts.com/pt",
+  "logo": {
+    "primary": "logos/header-img-1.svg",
+    "alternates": [
+      "logos/header-img-2.svg",
+      "logos/header-img-3.jpg",
+      "logos/header-img-4.jpg",
+      "logos/header-img-5.jpg",
+      "logos/og-image-0.jpg"
+    ],
+    "notes": ""
+  },
+  "colors": [
+    {
+      "role": "background",
+      "hex": "#ffffff",
+      "oklch": "",
+      "name": "Background",
+      "usage": "page canvas"
+    },
+    {
+      "role": "surface",
+      "hex": "#f5f5f5",
+      "oklch": "",
+      "name": "Surface",
+      "usage": "cards / raised surfaces"
+    },
+    {
+      "role": "foreground",
+      "hex": "#000000",
+      "oklch": "",
+      "name": "Foreground",
+      "usage": "body text"
+    },
+    {
+      "role": "muted",
+      "hex": "#8c8c8c",
+      "oklch": "",
+      "name": "Muted",
+      "usage": "secondary text"
+    },
+    {
+      "role": "border",
+      "hex": "#dbdbdb",
+      "oklch": "",
+      "name": "Border",
+      "usage": "hairlines / dividers"
+    },
+    {
+      "role": "accent",
+      "hex": "#ffd700",
+      "oklch": "",
+      "name": "Accent",
+      "usage": "primary brand color"
+    },
+    {
+      "role": "accent-secondary",
+      "hex": "#c8102e",
+      "oklch": "",
+      "name": "Accent secondary",
+      "usage": "secondary brand color / links"
+    }
+  ],
+  "typography": {
+    "display": {
+      "family": "Outfit",
+      "fallbacks": [
+        "system-ui",
+        "-apple-system",
+        "Segoe UI",
+        "Helvetica Neue",
+        "Arial",
+        "sans-serif"
+      ],
+      "weights": [
+        400,
+        700
+      ]
+    },
+    "body": {
+      "family": "Outfit",
+      "fallbacks": [
+        "system-ui",
+        "-apple-system",
+        "Segoe UI",
+        "Helvetica Neue",
+        "Arial",
+        "sans-serif"
+      ],
+      "weights": [
+        400,
+        700
+      ]
+    }
+  },
+  "voice": {
+    "adjectives": [],
+    "tone": "",
+    "messagingPillars": [
+      "Cresça Sua Audiência de Forma Espetacular",
+      "Criadores que usam a ByCuts",
+      "Three steps to viral content"
+    ],
+    "vocabulary": {
+      "use": [],
+      "avoid": []
+    }
+  },
+  "imagery": {
+    "style": "",
+    "subjects": [],
+    "treatment": "",
+    "avoid": [],
+    "samples": [
+      {
+        "file": "imagery/cover-0.jpg",
+        "kind": "cover",
+        "caption": "Social cover image"
+      },
+      {
+        "file": "imagery/image-1.jpg",
+        "kind": "image",
+        "caption": "Site image 1"
+      },
+      {
+        "file": "imagery/image-2.jpg",
+        "kind": "image",
+        "caption": "Site image 2"
+      },
+      {
+        "file": "imagery/image-3.jpg",
+        "kind": "image",
+        "caption": "Site image 3"
+      },
+      {
+        "file": "imagery/image-4.jpg",
+        "kind": "image",
+        "caption": "Site image 4"
+      },
+      {
+        "file": "imagery/image-5.jpg",
+        "kind": "image",
+        "caption": "Site image 5"
+      },
+      {
+        "file": "imagery/image-6.jpg",
+        "kind": "image",
+        "caption": "Site image 6"
+      },
+      {
+        "file": "imagery/image-7.jpg",
+        "kind": "image",
+        "caption": "Site image 7"
+      }
+    ]
+  },
+  "layout": {
+    "radius": "8px",
+    "borderWeight": "1px",
+    "spacing": "8px baseline grid",
+    "postureRules": []
+  }
+}

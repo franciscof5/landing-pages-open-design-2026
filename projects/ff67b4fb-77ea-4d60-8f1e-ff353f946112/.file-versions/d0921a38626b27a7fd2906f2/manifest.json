@@ -1,7 +1,7 @@
 {
   "schemaVersion": 2,
   "fileName": "curso-canal-dark/index.html",
-  "currentVersionId": "6e6e7e8a-6e80-41ff-ade5-26f55bddba96",
+  "currentVersionId": "8a393d20-9ebf-49b1-b60b-53b96438b13f",
   "entries": [
     {
       "id": "e3c84b55-cfd9-4700-9781-d93beccf7057",
@@ -30,7 +30,22 @@
       "mime": "text/html; charset=utf-8",
       "kind": "html",
       "contentPath": "0002-6e6e7e8a-6e80-41ff-ade5-26f55bddba96.html",
-      "contentDigest": "5b737489317ecb492bf0bd47b7d5517ce46f83ab29884cdd3c07edb141c63ca6",
+      "promptSource": "message",
+      "contentDigest": "5b737489317ecb492bf0bd47b7d5517ce46f83ab29884cdd3c07edb141c63ca6"
+    },
+    {
+      "id": "8a393d20-9ebf-49b1-b60b-53b96438b13f",
+      "fileName": "curso-canal-dark/index.html",
+      "version": 3,
+      "label": "Version 3",
+      "createdAt": 1791122497556,
+      "source": "ai",
+      "prompt": "use a versao dark do design e implemente um seletor para alternar\n\n<active-workspace-context>\nOpenDesign selected or inferred these workspace contexts for this turn. Treat absolute paths as reference context unless the user explicitly asks to edit them.\n1. file: index.html | path: curso-canal-dark/index.html | absolute: /app/.od/projects/ff67b4fb-77ea-4d60-8f1e-ff353f946112/curso-canal-dark/index.html | tab: curso-canal-dark/index.html\n</active-workspace-context>",
+      "size": 637729,
+      "mime": "text/html; charset=utf-8",
+      "kind": "html",
+      "contentPath": "0003-8a393d20-9ebf-49b1-b60b-53b96438b13f.html",
+      "contentDigest": "af0a144b1ff7788f6b34aebd8b7a5ae3cf39c7bf68121b2233595a99250d356d",
       "promptSource": "message"
     }
   ]

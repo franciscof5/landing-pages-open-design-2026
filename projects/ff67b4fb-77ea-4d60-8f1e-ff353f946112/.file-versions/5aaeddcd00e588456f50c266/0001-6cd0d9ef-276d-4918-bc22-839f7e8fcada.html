@@ -1,0 +1,607 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem('bycuts-theme');
+        if (t !== 'light' && t !== 'dark') t = 'dark';
+        document.documentElement.setAttribute('data-theme', t);
+      } catch (e) {
+        document.documentElement.setAttribute('data-theme', 'dark');
+      }
+    })();
+  </script>
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-KJPHL688');</script>
+  <!-- End Google Tag Manager -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Mentoria & Consultoria ByCuts — reunião 1-1 por R$197</title>
+  <meta name="description" content="Reunião online 1-1 para donos de podcast: estrategia personalizada, setup completo da ByCuts e analise de metricas. R$197." />
+  <style>
+    /* ─── typeface: Outfit (variable, latin) ────────────────────────── */
+    @font-face {
+      font-family: 'Outfit';
+      font-style: normal;
+      font-weight: 100 900;
+      font-display: swap;
+      src: url('../../assets/outfit.woff2') format('woff2');
+    }
+
+    /* ─── tokens — ByCuts ──────────────────────────────────────────── */
+    :root {
+      --bg:      #ffffff;
+      --surface: #f5f5f5;
+      --fg:      #000000;
+      --muted:   #8c8c8c;
+      --border:  #dbdbdb;
+      --accent:  #ffd700;
+      --accent-secondary: #c8102e;
+
+      color-scheme: light;
+
+      --accent-soft: color-mix(in oklch, var(--accent) 18%, transparent);
+      --fg-soft:     color-mix(in oklch, var(--fg) 6%, transparent);
+      --eyebrow:     color-mix(in oklch, var(--accent-secondary) 82%, var(--fg));
+
+      --font-display: 'Outfit', system-ui, -apple-system, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+      --font-body:    'Outfit', system-ui, -apple-system, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+      --font-mono:    ui-monospace, 'JetBrains Mono', 'SF Mono', Menlo, monospace;
+
+      --fs-h1: clamp(40px, 5.6vw, 68px);
+      --fs-h2: clamp(30px, 3.6vw, 44px);
+      --fs-h3: 21px;
+      --fs-lead: 19px;
+      --fs-body: 16px;
+      --fs-meta: 13px;
+
+      --gap-xs: 8px;
+      --gap-sm: 12px;
+      --gap-md: 20px;
+      --gap-lg: 32px;
+      --gap-xl: 56px;
+      --gap-2xl: 96px;
+      --container: 1120px;
+      --gutter: 32px;
+
+      --radius: 8px;
+      --radius-lg: 8px;
+    }
+
+    /* ─── tokens do tema escuro ────────────────────────────────────── */
+    :root[data-theme="dark"] {
+      color-scheme: dark;
+      --bg:      #000000;
+      --surface: color-mix(in oklch, #ffffff 7%, #000000);
+      --fg:      #ffffff;
+      --border:  color-mix(in oklch, #ffffff 16%, #000000);
+    }
+
+    /* ─── reset & base ─────────────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; }
+    html { -webkit-text-size-adjust: 100%; background: var(--bg); }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--fg);
+      transition: background-color 0.2s ease, color 0.2s ease;
+      font-family: var(--font-body);
+      font-size: var(--fs-body);
+      line-height: 1.55;
+      text-rendering: optimizeLegibility;
+      -webkit-font-smoothing: antialiased;
+    }
+    img, svg { display: block; max-width: 100%; }
+    a { color: inherit; text-decoration: none; }
+    button { font: inherit; cursor: pointer; }
+    p { text-wrap: pretty; }
+    h1, h2, h3, h4 { text-wrap: balance; }
+    :focus-visible { outline: 2px solid var(--accent-secondary); outline-offset: 2px; }
+    section[id] { scroll-margin-top: 88px; }
+
+    /* ─── layout primitives ────────────────────────────────────────── */
+    .container { max-width: var(--container); margin-inline: auto; padding-inline: var(--gutter); }
+    .section { padding-block: clamp(52px, 8vw, var(--gap-2xl)); }
+    .section + .section { border-top: 1px solid var(--border); }
+    .stack { display: flex; flex-direction: column; }
+    .stack > * + * { margin-top: var(--gap-md); }
+    .row { display: flex; align-items: center; gap: var(--gap-md); }
+    .row-between { display: flex; align-items: center; justify-content: space-between; gap: var(--gap-md); }
+    .grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--gap-lg); }
+    .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--gap-lg); }
+    .grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--gap-md); }
+    .grid-2-1 { display: grid; grid-template-columns: 2fr 1fr; gap: var(--gap-xl); align-items: start; }
+    .grid-1-2 { display: grid; grid-template-columns: 0.9fr 1.1fr; gap: var(--gap-xl); align-items: center; }
+    @media (max-width: 920px) {
+      .grid-2, .grid-3, .grid-4, .grid-2-1, .grid-1-2 { grid-template-columns: 1fr; }
+    }
+
+    /* ─── type ─────────────────────────────────────────────────────── */
+    .h1, h1 { font-family: var(--font-display); font-size: var(--fs-h1); line-height: 1.04; letter-spacing: -0.025em; font-weight: 700; margin: 0; }
+    .h2, h2 { font-family: var(--font-display); font-size: var(--fs-h2); line-height: 1.08; letter-spacing: -0.02em; font-weight: 700; margin: 0; }
+    .h3, h3 { font-family: var(--font-display); font-size: var(--fs-h3); font-weight: 600; line-height: 1.25; letter-spacing: -0.01em; margin: 0; }
+    .lead { font-size: var(--fs-lead); line-height: 1.55; color: var(--fg); max-width: 60ch; margin: 0; }
+    .eyebrow {
+      font-family: var(--font-mono);
+      font-size: 12px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--eyebrow);
+      margin: 0 0 var(--gap-md);
+      font-weight: 600;
+    }
+    .meta { font-family: var(--font-mono); font-size: var(--fs-meta); color: var(--fg); }
+    .caption { font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.02em; color: var(--fg); margin: 12px 0 0; }
+    .num { font-family: var(--font-mono); font-variant-numeric: tabular-nums; }
+
+    /* ─── chrome: nav + footer ─────────────────────────────────────── */
+    .topnav {
+      position: sticky; top: 0; z-index: 10;
+      background: color-mix(in oklch, var(--bg) 88%, transparent);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+    .topnav-inner { display: flex; align-items: center; justify-content: space-between; gap: var(--gap-md); padding-block: 14px; }
+    .topnav .logo { font-family: var(--font-display); font-size: 20px; font-weight: 700; letter-spacing: -0.02em; }
+    .topnav .logo span { color: var(--fg); }
+    .topnav nav { display: flex; gap: var(--gap-lg); }
+    .topnav nav a { font-size: 14px; color: var(--fg); }
+    .topnav nav a:hover { color: var(--accent-secondary); }
+    @media (max-width: 720px) { .topnav nav { display: none; } }
+    .pagefoot { padding-block: var(--gap-xl); background: var(--fg); color: var(--bg); font-size: 13px; }
+    .pagefoot a { color: var(--bg); text-decoration: underline; text-underline-offset: 3px; }
+    .pagefoot .row-between { flex-wrap: wrap; gap: var(--gap-md); }
+    .pagefoot .logo span { color: var(--accent); }
+    .pagefoot .attrib { margin-top: var(--gap-xl); padding-top: var(--gap-md); border-top: 1px solid color-mix(in oklch, var(--bg) 24%, transparent); opacity: 0.78; max-width: 78ch; line-height: 1.6; }
+
+    /* ─── buttons ──────────────────────────────────────────────────── */
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+      padding: 13px 22px;
+      min-height: 46px;
+      border-radius: var(--radius);
+      border: 1px solid transparent;
+      font-size: 15px;
+      font-weight: 600;
+      letter-spacing: -0.005em;
+      transition: background 0.15s ease, border-color 0.15s ease, color 0.15s ease, transform 0.06s ease;
+    }
+    .btn:active { transform: translateY(1px); }
+    .btn-primary { background: var(--accent); color: var(--fg); border-color: var(--accent); }
+    .btn-primary:hover { background: color-mix(in oklch, var(--accent) 84%, var(--fg)); border-color: color-mix(in oklch, var(--accent) 64%, var(--fg)); }
+    .btn-secondary { background: transparent; color: var(--fg); border-color: var(--border); }
+    .btn-secondary:hover { border-color: var(--fg); }
+    .btn-ghost { background: transparent; color: var(--fg); border-color: transparent; padding-inline: 6px; }
+    .btn-ghost:hover { color: var(--accent-secondary); }
+    .btn-arrow::after { content: '\2192'; transition: transform 0.15s ease; }
+    .btn-arrow:hover::after { transform: translateX(3px); }
+    .btn-link { display: inline-flex; align-items: center; gap: 6px; color: var(--accent-secondary); font-weight: 600; border-bottom: 1px solid currentColor; padding-bottom: 2px; align-self: flex-start; }
+    .btn-link:hover { color: var(--fg); }
+
+    /* ─── card / surface ───────────────────────────────────────────── */
+    .card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 28px; }
+    .card-flat { background: transparent; border: 0; padding: 0; }
+
+    /* ─── feature cell ─────────────────────────────────────────────── */
+    .feature .feature-mark {
+      width: 40px; height: 40px;
+      display: grid; place-items: center;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      color: var(--fg);
+      margin-bottom: var(--gap-md);
+      background: var(--bg);
+    }
+    .feature .feature-mark svg { width: 19px; height: 19px; }
+    .feature h3 { margin-bottom: 8px; }
+    .feature p { margin: 0; color: var(--fg); font-size: 15px; max-width: 40ch; }
+
+    /* ─── step ─────────────────────────────────────────────────────── */
+    .step { display: grid; grid-template-columns: 64px 1fr; gap: var(--gap-md); padding: 24px 0; border-top: 1px solid var(--border); }
+    .step:first-child { border-top: 0; padding-top: 0; }
+    .step-num { font-family: var(--font-display); font-size: 44px; line-height: 1; font-weight: 700; color: var(--muted); }
+    .step h3 { margin-bottom: 6px; }
+    .step p { margin: 0; font-size: 15px; max-width: 44ch; }
+
+    /* ─── images ───────────────────────────────────────────────────── */
+    .content-img { display: block; width: 100%; height: auto; border-radius: var(--radius); border: 1px solid var(--border); }
+
+    /* ─── hero figure + price overlay ──────────────────────────────── */
+    .hero-figure { position: relative; margin: 0; }
+    .badge-overlay {
+      position: absolute; left: 16px; bottom: 16px;
+      background: color-mix(in oklch, var(--bg) 86%, transparent);
+      backdrop-filter: blur(10px);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 12px 16px;
+      box-shadow: 0 12px 30px -18px color-mix(in oklch, var(--fg) 50%, transparent);
+    }
+    .badge-overlay .b-price { font-family: var(--font-display); font-size: 24px; font-weight: 700; line-height: 1.1; }
+    .badge-overlay .b-label { font-family: var(--font-mono); font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em; margin-top: 3px; }
+
+    /* ─── price strip (final CTA) ──────────────────────────────────── */
+    .price-strip { display: flex; align-items: baseline; justify-content: center; gap: 14px; flex-wrap: wrap; margin: 8px 0 32px; }
+    .price-strip .p-value { font-family: var(--font-display); font-size: clamp(44px, 7vw, 64px); font-weight: 700; line-height: 1; }
+    .price-strip .p-meta { font-family: var(--font-mono); font-size: 13px; text-transform: uppercase; letter-spacing: 0.06em; text-align: left; }
+
+    /* ─── FAQ ──────────────────────────────────────────────────────── */
+    .faq { border-top: 1px solid var(--border); }
+    details.faq-item { border-bottom: 1px solid var(--border); }
+    details.faq-item summary {
+      list-style: none; cursor: pointer;
+      display: flex; align-items: center; justify-content: space-between; gap: var(--gap-md);
+      padding: 22px 0; font-size: 17px; font-weight: 600; font-family: var(--font-display);
+    }
+    details.faq-item summary::-webkit-details-marker { display: none; }
+    details.faq-item summary .plus { font-family: var(--font-mono); transition: transform 0.2s ease; flex: none; }
+    details.faq-item[open] summary .plus { transform: rotate(45deg); }
+    details.faq-item .faq-answer { padding: 0 0 22px; max-width: 68ch; font-size: 15px; }
+    details.faq-item summary:hover { color: var(--accent-secondary); }
+
+    /* ─── booking form ─────────────────────────────────────────────── */
+    .form-card { background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 32px; }
+    .grid-form { display: grid; grid-template-columns: 1fr 1fr; gap: var(--gap-md); }
+    @media (max-width: 720px) { .grid-form { grid-template-columns: 1fr; } }
+    .field { display: flex; flex-direction: column; gap: 7px; }
+    .field label { font-size: 13px; font-weight: 600; color: var(--fg); }
+    .input {
+      width: 100%; padding: 13px 14px; min-height: 46px;
+      border: 1px solid var(--border); border-radius: var(--radius);
+      background: var(--bg); color: var(--fg); font: inherit; font-size: 15px;
+    }
+    .input:focus { outline: 2px solid var(--accent-soft); border-color: var(--accent-secondary); }
+    .input[aria-invalid="true"] { border-color: var(--accent-secondary); }
+    .form-note { font-size: 13px; margin: 14px 0 0; max-width: 62ch; }
+    .success { display: none; }
+    .success[data-visible="true"] { display: block; }
+    form[data-submitted="true"] .form-fields { display: none; }
+    .success .check { width: 44px; height: 44px; border: 2px solid var(--accent); border-radius: var(--radius); display: grid; place-items: center; margin-bottom: var(--gap-md); font-size: 22px; }
+
+    /* ─── misc ─────────────────────────────────────────────────────── */
+    .kicker-list { list-style: none; padding: 0; margin: 0; display: grid; gap: 14px; }
+    .kicker-list li { display: grid; grid-template-columns: 22px 1fr; gap: 12px; align-items: start; font-size: 15px; }
+    .kicker-list .tick { color: var(--fg); font-weight: 700; font-family: var(--font-mono); }
+
+    /* ─── seletor de tema ──────────────────────────────────────────── */
+    .topnav-actions { display: flex; align-items: center; gap: 10px; }
+    .theme-toggle {
+      width: 44px; height: 44px; flex: none;
+      display: grid; place-items: center;
+      background: transparent; color: var(--fg);
+      border: 1px solid var(--border); border-radius: var(--radius);
+      transition: background 0.15s ease, border-color 0.15s ease;
+    }
+    .theme-toggle:hover { background: var(--surface); border-color: var(--fg); }
+    .theme-toggle:active { transform: translateY(1px); }
+    .theme-toggle svg { width: 18px; height: 18px; }
+    .theme-toggle .icon-sun { display: none; }
+    [data-theme="dark"] .theme-toggle .icon-sun { display: block; }
+    [data-theme="dark"] .theme-toggle .icon-moon { display: none; }
+
+    /* ─── faixa de CTA: contraste adaptável ao tema ────────────────── */
+    .cta-band { background: var(--fg); color: var(--bg); }
+    .cta-band h2, .cta-band .lead, .cta-band .cta-note { color: var(--bg); }
+    .cta-band .price-strip .p-value { color: var(--bg); }
+    .cta-note { font-size: 13px; margin: var(--gap-md) auto 0; max-width: 64ch; text-align: center; line-height: 1.6; opacity: 0.8; }
+
+    /* ─── ajustes do tema escuro ───────────────────────────────────── */
+    [data-theme="dark"] .btn-primary { color: var(--bg); }
+    [data-theme="dark"] .pagefoot { background: var(--surface); color: var(--fg); border-top: 1px solid var(--border); }
+    [data-theme="dark"] .pagefoot a { color: var(--fg); }
+    [data-theme="dark"] .pagefoot .attrib { border-top-color: var(--border); opacity: 0.72; }
+    [data-theme="dark"] .cta-band { background: var(--surface); color: var(--fg); }
+    [data-theme="dark"] .cta-band h2, [data-theme="dark"] .cta-band .lead, [data-theme="dark"] .cta-band .cta-note { color: var(--fg); }
+    [data-theme="dark"] .cta-band .price-strip .p-value { color: var(--fg); }
+  </style>
+</head>
+<body>
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KJPHL688"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+  <header class="topnav" data-od-id="topnav">
+    <div class="container topnav-inner">
+      <a class="logo" href="#topo" data-scroll>By<span>Cuts</span></a>
+      <nav>
+        <a href="#inclui" data-scroll>O que inclui</a>
+        <a href="#como" data-scroll>Como funciona</a>
+        <a href="#sobre" data-scroll>Quem guia</a>
+        <a href="#duvidas" data-scroll>Dúvidas</a>
+      </nav>
+      <div class="topnav-actions">
+        <button class="theme-toggle" type="button" data-od-id="seletor-tema" aria-label="Ativar modo claro" aria-pressed="true">
+          <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2v2.2M12 19.8V22M4.2 4.2l1.6 1.6M18.2 18.2l1.6 1.6M2 12h2.2M19.8 12H22M4.2 19.8l1.6-1.6M18.2 5.8l1.6-1.6"/></svg>
+          <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.5 14.5A8.5 8.5 0 0 1 9.5 3.5a8.5 8.5 0 1 0 11 11z"/></svg>
+        </button>
+        <a class="btn btn-secondary" href="#cta" data-scroll>Agendar mentoria</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="content">
+    <!-- ─── Hero ─────────────────────────────────────────────────── -->
+    <section class="section hero" id="topo" data-od-id="hero">
+      <div class="container grid-1-2">
+        <div>
+          <p class="eyebrow">Mentoria &amp; Consultoria</p>
+          <h1>Aproveite ao máximo a ByCuts, guiado por quem a construiu</h1>
+          <p class="lead" style="margin-top: 20px;">Uma reunião online 1-1 para transformar cada episódio do seu podcast em dezenas de clipes virais, automatizar a distribuição e crescer sua audiência de forma consistente.</p>
+          <div class="hero-cta" style="display: flex; gap: var(--gap-sm); flex-wrap: wrap; margin-top: 28px;">
+            <a class="btn btn-primary" href="#cta" data-scroll>Reservar minha reunião</a>
+            <a class="btn btn-ghost btn-arrow" href="#inclui" data-scroll>Ver o que inclui</a>
+          </div>
+          <p class="meta" style="margin-top: var(--gap-md); font-size: 12px;">Reunião individual · Zoom ou WhatsApp · R$197 por sessão</p>
+        </div>
+
+        <figure class="hero-figure">
+          <img class="content-img" src="../../assets/img-0.jpeg" width="1280" height="960"
+               alt="Estúdio de podcast com microfones, o ponto de partida de quem quer cortes virais com o ByCuts." />
+          <figcaption class="badge-overlay" aria-label="Valor e formato da mentoria">
+            <div class="b-price">R$197</div>
+            <div class="b-label">reunião 1-1 online</div>
+          </figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- ─── O que inclui ────────────────────────────────────────── -->
+    <section class="section" id="inclui" data-od-id="inclui" style="background: var(--surface);">
+      <div class="container stack" style="gap: 56px;">
+        <div style="max-width: 44ch;">
+          <p class="eyebrow">O que a mentoria inclui</p>
+          <h2>Do zero ao canal produzindo clipes de forma consistente</h2>
+        </div>
+        <div class="grid-2">
+          <div class="feature card-flat" data-od-id="feature-estrategia">
+            <div class="feature-mark" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 15a3 3 0 0 0 3-3V6a3 3 0 0 0-6 0v6a3 3 0 0 0 3 3z"/><path d="M19 11a7 7 0 0 1-14 0"/><path d="M12 18v3"/></svg>
+            </div>
+            <h3>Estratégia personalizada para o seu podcast</h3>
+            <p>Definimos juntos os melhores trechos, o formato de corte e o ritmo de publicação que fazem sentido para o seu nicho e a sua audiência.</p>
+          </div>
+          <div class="feature card-flat" data-od-id="feature-setup">
+            <div class="feature-mark" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L4 14h6l-1 8 9-12h-6l1-8z"/></svg>
+            </div>
+            <h3>Setup completo da ByCuts do zero</h3>
+            <p>Configuramos a ferramenta no seu fluxo: do upload do episódio à geração de legendas e exportação, sem depender de edição manual.</p>
+          </div>
+          <div class="feature card-flat" data-od-id="feature-metricas">
+            <div class="feature-mark" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M7 14l3-3 3 3 5-6"/></svg>
+            </div>
+            <h3>Análise de métricas e otimização contínua</h3>
+            <p>Leitura prática dos números que importam — retenção, alcance e conversão — para ajustar o próximo corte e crescer a cada publicação.</p>
+          </div>
+          <div class="feature card-flat" data-od-id="feature-suporte">
+            <div class="feature-mark" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.5 8.5 0 0 1-8.5 8.5c-1.4 0-2.7-.3-3.9-.9L3 20l1-5.1A8.5 8.5 0 1 1 21 11.5z"/></svg>
+            </div>
+            <h3>Suporte direto via WhatsApp ou Zoom</h3>
+            <p>Você não fica sozinho depois da reunião: tira dúvidas e recebe acompanhamento nos canais diretos com quem construiu a ByCuts.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── Como funciona ───────────────────────────────────────── -->
+    <section class="section" id="como" data-od-id="como">
+      <div class="container grid-2">
+        <div>
+          <p class="eyebrow">Como funciona</p>
+          <h2>Uma reunião, um plano de clipes pronto para executar</h2>
+          <div style="margin-top: 40px;">
+            <div class="step" data-od-id="passo-agendar">
+              <div class="step-num num">01</div>
+              <div>
+                <h3>Agende a reunião</h3>
+                <p>Escolha o horário e envie o link do seu podcast (ou conte seu projeto). Você recebe a confirmação por e-mail.</p>
+              </div>
+            </div>
+            <div class="step" data-od-id="passo-sessao">
+              <div class="step-num num">02</div>
+              <div>
+                <h3>Sessão 1-1 ao vivo</h3>
+                <p>Pelo Zoom ou WhatsApp, montamos juntos a estratégia, o setup da ByCuts e o primeiro corte do seu canal.</p>
+              </div>
+            </div>
+            <div class="step" data-od-id="passo-aplicar">
+              <div class="step-num num">03</div>
+              <div>
+                <h3>Aplique e cresça</h3>
+                <p>Você sai com o fluxo montado e as métricas mapeadas, pronto para publicar e otimizar de forma contínua.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <figure style="margin: 0;">
+          <img class="content-img" src="../../assets/img-1.jpeg" width="960" height="720"
+               alt="Mesa de estúdio caseiro com microfone e equipamento de áudio, mostrando a operação simples de um podcast." />
+          <figcaption class="caption">A reunião é prática: você termina com o fluxo da ByCuts funcionando no seu projeto.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- ─── Quem guia ───────────────────────────────────────────── -->
+    <section class="section" id="sobre" data-od-id="sobre" style="background: var(--surface);">
+      <div class="container grid-1-2">
+        <div>
+          <p class="eyebrow">Quem guia</p>
+          <h2>Mentoria com quem construiu a ByCuts</h2>
+          <p class="lead" style="margin-top: 20px;">Nada de teoria genérica: a reunião é conduzida por Francisco, que construiu a ByCuts e conhece o caminho completo — do episódio bruto ao corte legendado pronto para publicar.</p>
+          <ul class="kicker-list" style="margin-top: 28px;">
+            <li><span class="tick">+</span><span>Visão de quem criou a ferramenta, não de quem só usa</span></li>
+            <li><span class="tick">+</span><span>Respostas diretas para o seu caso, na hora</span></li>
+            <li><span class="tick">+</span><span>Foco em resultado: sair publicando, não só assistindo</span></li>
+          </ul>
+          <a class="btn-link btn-arrow" href="https://bycuts.com" target="_blank" rel="noopener" style="margin-top: 28px;">Conhecer o ByCuts</a>
+        </div>
+
+        <div class="card" style="padding: 28px;">
+          <div class="meta" style="margin-bottom: 14px;">Mentoria &amp; Consultoria</div>
+          <h3 style="margin-bottom: 6px;">Reunião individual com Francisco</h3>
+          <p style="margin: 0 0 20px; font-size: 15px; max-width: 42ch;">Sessão ao vivo focada no seu podcast, com tempo para dúvidas e montagem prática do seu fluxo.</p>
+          <div class="row-between" style="border-top: 1px solid var(--border); padding-top: 18px;">
+            <span class="meta">1-1 online · Zoom ou WhatsApp</span>
+            <span style="font-family: var(--font-display); font-size: 24px; font-weight: 700;">R$197</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── FAQ ──────────────────────────────────────────────────── -->
+    <section class="section" id="duvidas" data-od-id="faq">
+      <div class="container grid-1-2" style="align-items: start;">
+        <div>
+          <p class="eyebrow">Dúvidas frequentes</p>
+          <h2>O que você precisa saber antes de agendar</h2>
+        </div>
+        <div class="faq">
+          <details class="faq-item" open>
+            <summary>Como funciona a reunião? <span class="plus" aria-hidden="true">+</span></summary>
+            <div class="faq-answer">É uma sessão individual ao vivo, pelo Zoom ou WhatsApp. Você agenda o horário, envia o link do seu podcast e a conversa é toda voltada para o seu caso.</div>
+          </details>
+          <details class="faq-item">
+            <summary>Preciso saber editar vídeo? <span class="plus" aria-hidden="true">+</span></summary>
+            <div class="faq-answer">Não. Fazemos o setup da ByCuts do zero e a ferramenta cuida dos cortes e das legendas. Você aprende a operar o fluxo na própria reunião.</div>
+          </details>
+          <details class="faq-item">
+            <summary>O que eu levo da reunião? <span class="plus" aria-hidden="true">+</span></summary>
+            <div class="faq-answer">Um plano de clipes para o seu podcast, o ByCuts configurado no seu fluxo e o mapa de métricas para otimizar as próximas publicações.</div>
+          </details>
+          <details class="faq-item">
+            <summary>Posso tirar dúvidas depois? <span class="plus" aria-hidden="true">+</span></summary>
+            <div class="faq-answer">Sim. O suporte direto via WhatsApp ou Zoom continua depois da sessão para acompanhar os primeiros passos da execução.</div>
+          </details>
+          <details class="faq-item">
+            <summary>O valor de R$197 é por reunião? <span class="plus" aria-hidden="true">+</span></summary>
+            <div class="faq-answer">Sim. R$197 é o valor da reunião individual 1-1. Ao preencher o formulário você recebe as instruções de pagamento e agendamento.</div>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── CTA + reserva ───────────────────────────────────────── -->
+    <section class="section cta-band" id="cta" data-od-id="cta-reserva">
+      <div class="container" style="max-width: 720px;">
+        <div style="text-align: center; margin-bottom: 12px;">
+          <h2>Agende sua mentoria 1-1</h2>
+          <p class="lead" style="margin: 18px auto 0; max-width: 52ch;">Reserve sua reunião com quem construiu a ByCuts e saia com seu podcast produzindo clipes virais.</p>
+        </div>
+
+        <div class="price-strip">
+          <span class="p-value">R$197</span>
+          <span class="p-meta" style="color: inherit;">por reunião<br/>1-1 online</span>
+        </div>
+
+        <div class="form-card">
+          <form id="reserva" novalidate>
+            <div class="form-fields">
+              <div class="grid-form">
+                <div class="field">
+                  <label for="nome">Seu nome</label>
+                  <input class="input" id="nome" name="nome" type="text" autocomplete="name" placeholder="Como podemos te chamar" required />
+                </div>
+                <div class="field">
+                  <label for="email">Seu melhor e-mail</label>
+                  <input class="input" id="email" name="email" type="email" autocomplete="email" placeholder="voce@email.com" required />
+                </div>
+              </div>
+              <div class="field" style="margin-top: var(--gap-md);">
+                <label for="whats">WhatsApp (opcional)</label>
+                <input class="input" id="whats" name="whats" type="tel" autocomplete="tel" placeholder="(00) 00000-0000" />
+              </div>
+              <button class="btn btn-primary" type="submit" style="width: 100%; margin-top: var(--gap-md);">Reservar minha reunião</button>
+              <p class="form-note" style="color: var(--fg);">Após o envio você recebe as instruções de pagamento (R$197) e o link para escolher o horário.</p>
+            </div>
+
+            <div class="success" id="reserva-success" role="status" aria-live="polite" data-visible="false">
+              <div class="check" aria-hidden="true">&#10003;</div>
+              <h3>Solicitação enviada</h3>
+              <p style="margin: 8px 0 0; max-width: 50ch;">Enviamos as próximas instruções para o seu e-mail. Fique de olho na caixa de entrada para confirmar o horário.</p>
+            </div>
+          </form>
+        </div>
+
+        <p class="cta-note">A mentoria orienta o uso da ferramenta e o crescimento do canal; os resultados dependem do seu nicho, da consistência e das políticas das plataformas.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="pagefoot" data-od-id="footer">
+    <div class="container">
+      <div class="row-between">
+        <span class="logo" style="font-family: var(--font-display); font-size: 20px; font-weight: 700;">By<span>Cuts</span></span>
+        <span>Mentoria &amp; Consultoria · <a href="https://bycuts.com" target="_blank" rel="noopener">bycuts.com</a></span>
+        <span>&copy; 2026 ByCuts. Todos os direitos reservados.</span>
+      </div>
+      <p class="attrib">Imagens: estúdio de podcast por Myotus (CC BY 4.0) e estúdio caseiro por Tim Wilson (CC BY 2.0), via Wikimedia Commons. Conteúdo educativo; não afiliado ao YouTube.</p>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+      document.querySelectorAll('[data-scroll]').forEach(function (link) {
+        link.addEventListener('click', function (e) {
+          var id = link.getAttribute('href');
+          if (!id || id.charAt(0) !== '#') return;
+          var target = document.querySelector(id);
+          if (!target) return;
+          e.preventDefault();
+          var top = target.getBoundingClientRect().top + window.pageYOffset - 84;
+          window.scrollTo({ top: top, behavior: reduce ? 'auto' : 'smooth' });
+          if (history.replaceState) history.replaceState(null, '', id);
+        });
+      });
+
+      var root = document.documentElement;
+      var themeToggle = document.querySelector('.theme-toggle');
+      if (themeToggle) {
+        var syncTheme = function () {
+          var dark = root.getAttribute('data-theme') !== 'light';
+          themeToggle.setAttribute('aria-pressed', dark ? 'true' : 'false');
+          themeToggle.setAttribute('aria-label', dark ? 'Ativar modo claro' : 'Ativar modo escuro');
+        };
+        syncTheme();
+        themeToggle.addEventListener('click', function () {
+          var next = root.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
+          root.setAttribute('data-theme', next);
+          try { localStorage.setItem('bycuts-theme', next); } catch (err) {}
+          syncTheme();
+        });
+      }
+
+      var form = document.getElementById('reserva');
+      if (!form) return;
+      var success = document.getElementById('reserva-success');
+      var nome = document.getElementById('nome');
+      var email = document.getElementById('email');
+
+      function validEmail(v) { return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v); }
+
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        var ok = true;
+        if (!nome.value.trim()) { nome.setAttribute('aria-invalid', 'true'); ok = false; } else { nome.removeAttribute('aria-invalid'); }
+        if (!validEmail(email.value.trim())) { email.setAttribute('aria-invalid', 'true'); ok = false; } else { email.removeAttribute('aria-invalid'); }
+        if (!ok) { (nome.value.trim() ? email : nome).focus(); return; }
+        form.setAttribute('data-submitted', 'true');
+        success.setAttribute('data-visible', 'true');
+      });
+
+      [nome, email].forEach(function (input) {
+        input.addEventListener('input', function () { input.removeAttribute('aria-invalid'); });
+      });
+    })();
+  </script>
+</body>
+</html>

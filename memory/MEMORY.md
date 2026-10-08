@@ -45,3 +45,13 @@ back if you change your mind.
 - [OpenDesign | LinkedIn layout posture](rule_brand_opendesign_linkedin_layout.md) — Layout follows OpenDesign | LinkedIn's posture.
 
 - [OpenDesign | LinkedIn logo usage](rule_brand_opendesign_linkedin_logo.md) — OpenDesign | LinkedIn logo usage follows brand guidance.
+
+- [ByCuts — Editor de Cortes com IA para Podcasts visual direction](user_brand_bycuts_editor_de_cortes_com_ia_para_podc_visual.md) — Default palette, type and layout for ByCuts — Editor de Cortes com IA para Podcasts.
+
+- [ByCuts — Editor de Cortes com IA para Podcasts voice](reference_brand_bycuts_editor_de_cortes_com_ia_para_podc_voice.md) — Tone, vocabulary and imagery for ByCuts — Editor de Cortes com IA para Podcasts.
+
+- [ByCuts — Editor de Cortes com IA para Podcasts palette only](rule_brand_bycuts_editor_de_cortes_com_ia_para_podc_palette.md) — Only ByCuts — Editor de Cortes com IA para Podcasts's registered palette is used for color.
+
+- [ByCuts — Editor de Cortes com IA para Podcasts typography](rule_brand_bycuts_editor_de_cortes_com_ia_para_podc_type.md) — Type uses ByCuts — Editor de Cortes com IA para Podcasts's font families with correct fallbacks.
+
+- [ByCuts — Editor de Cortes com IA para Podcasts layout posture](rule_brand_bycuts_editor_de_cortes_com_ia_para_podc_layout.md) — Layout follows ByCuts — Editor de Cortes com IA para Podcasts's posture.
